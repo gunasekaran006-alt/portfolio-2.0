@@ -24,7 +24,7 @@ function App() {
               icon="🎨" 
               iconColor="#F16529" 
               desc="100% Custom built from scratch. Flexbox, CSS Grid, Advanced Animations, and Media Queries without any frameworks." 
-              link="#" 
+              link="https://gunasekaran006-alt.github.io/My-Portfolio/vanilla-portfolio.html" 
             />
           </div>
 
@@ -35,7 +35,7 @@ function App() {
               icon="⚡" 
               iconColor="#7952B3" 
               desc="Rapid UI development utilizing Bootstrap's grid system, utility classes, and pre-built components." 
-              link="#" 
+              link="https://gunasekaran006-alt.github.io/My-Portfolio/bootstrap-portfolio.html" 
             />
           </div>
 
