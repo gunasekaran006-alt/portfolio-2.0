@@ -1,5 +1,38 @@
 @import "tailwindcss";
 
+@theme {
+  --color-brand: #27C8F5;
+  --color-brand-hover: #1fb3db;
+  --color-brand-active: #18a2c7;
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+
+.btn-master-hub {
+    display: inline-block !important;
+    background-color: #27C8F5 !important; /* Full Cyan - Exactly like your main hub */
+    color: #000000 !important;
+    font-size: 15px !important;
+    padding: 8px 20px !important; /* Adjusted for better look in cards */
+    border-radius: 5px !important; /* Original 5px radius from your code */
+    font-weight: bold !important;
+    border: 2px solid #27C8F5 !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    width: 100% !important; /* To fit the Tailwind Card width */
+}
+
+.btn-master-hub:hover {
+    background-color: transparent !important; /* Turns transparent on hover */
+    color: #27C8F5 !important;
+    box-shadow: 0px 0px 15px rgba(39, 200, 245, 0.8) !important;
+    transform: scale(1.05) !important; /* Subtle zoom from your code */
+}
+
+.btn-master-hub:active {
+    transform: scale(0.95) !important;
+    box-shadow: none !important;
 }
