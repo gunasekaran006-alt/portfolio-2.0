@@ -3,7 +3,8 @@
 Welcome to **Portfolio 2.0**, the Phase 2 evolution of my Master Hub. This project is a dynamic, component-based Enterprise Dashboard built to showcase my transition into modern JavaScript frameworks and frontend engineering.
 
 ### 🔗 Live Demo
-**[Click here to view the Live Dashboard](#)** *(Note: Netlify link will be added here soon)*
+**[portfilio-2-0.netlify.app](#)** 
+*(Note: Netlify link will be added here soon)*
 
 ---
 
