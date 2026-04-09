@@ -3,7 +3,7 @@ import "./styles/pinterest.css"
 
 function PathCard({ title, icon, iconColor, desc, link }) {
   return (
-    <a href={link} className="text-decoration-none" target="_blank" rel="noreferrer">
+    <a href={link} className="text-decoration-none">
       <div 
         className="card bg-black border-secondary text-light h-100 p-4 shadow-sm"
         style={{ cursor: 'pointer', transition: 'transform 0.2s ease' }}
