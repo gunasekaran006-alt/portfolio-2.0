@@ -1,4 +1,5 @@
 import React from 'react';
+import "./styles/pinterest.css"
 
 function PathCard({ title, icon, iconColor, desc, link }) {
   return (
