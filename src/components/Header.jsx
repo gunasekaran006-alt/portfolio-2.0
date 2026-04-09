@@ -33,7 +33,7 @@ function Header() {
 
           {/* System Status Badge */}
           <span className="badge bg-transparent border border-success text-success rounded-pill px-3 py-2 d-none d-lg-inline-block">
-            <i className="bi bi-record-circle-fill me-1"></i> System Online
+            <i className="bi bi-record-circle-fill me-1"></i> Server: Active
           </span>
           
         </div>
