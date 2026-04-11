@@ -3,7 +3,7 @@
 Welcome to **Portfolio 2.0**, the Phase 2 evolution of my Master Hub. This project is a dynamic, component-based Enterprise Dashboard built to showcase my transition into modern JavaScript frameworks and frontend engineering.
 
 ### 🔗 Live Demo
-https://portfilio-2-0.netlify.app/
+https://portfolio-2-0-gunasekaran006-alts-projects.vercel.app
 
 ---
 
