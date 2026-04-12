@@ -12,6 +12,7 @@ import ProfileLab from './components/tailwind-ui/ProfileLab';
 import ProductModule from './components/tailwind-ui/ProductModule';
 import StateLab from './components/tailwind-ui/StateLab';
 import UserEngine from './components/tailwind-ui/UserEngine';
+import AxiosProducts from './components/tailwind-ui/AxiosProducts';
 
 
 function App() {
@@ -115,6 +116,18 @@ function App() {
             />
           </div>
 
+          {/* Card 6: Axios Engine */}
+          <div className="col-md-3">
+            <PathCard
+              title="6. Axios Engine"
+              icon="📡"
+              iconColor="#A855F7"
+              desc="Advanced Data Fetching: Using Axios to retrieve and render complex product JSON objects."
+              framework="TAILWIND CSS"
+              link="#axios-lab"
+            />
+          </div>
+
         </div>
 
         {/* --- LIVE MODULES (Line by Line) --- */}
@@ -147,6 +160,10 @@ function App() {
           <UserEngine />
         </div>
 
+        {/* 7. Axios Data Engine Lab */}
+        <div id="axios-lab" className="mt-5 pt-5 border-t border-slate-800 flex flex-col items-center">
+          <AxiosProducts />
+        </div>
 
       </div>
     </div>

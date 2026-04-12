@@ -11,7 +11,7 @@ function ProductModule() {
     {/* Standard Header with Cyan Title & Grey Tag */}
     <div className="flex justify-between items-center mb-8 border-b border-slate-800 pb-4">
         <h4 className="!text-[#27C8F5] text-xs font-black uppercase tracking-widest flex items-center gap-2">
-            <span className="text-lg">📦</span> Dynamic Data Mapping Lab 
+            <span className="text-lg"></span> Dynamic Data Mapping Lab 
         </h4>        
     </div>
 

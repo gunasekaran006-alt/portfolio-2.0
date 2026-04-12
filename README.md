@@ -180,3 +180,18 @@ Side Effects & API Integration (useEffect):
 Users.jsx: Demonstrates the Component Lifecycle by fetching user data from an external API (fakestoreapi.com) on mount and rendering the list.
 Styling: Uses Tailwind CSS for responsive and utility-first styling.
 Build Tool: Powered by Vite for a fast development environment.
+
+
+
+-----------------------------------------------------
+
+🛒 React API Fetching Project (Day 46)
+A modern React application built with Vite that demonstrates how to fetch, manage, and display product data from a REST API using Axios and Tailwind CSS.
+🚀 Features
+Vite + React: Ultra-fast development environment with Hot Module Replacement (HMR).
+API Integration: Fetches real-time product data from DummyJSON.
+Axios: Used for efficient asynchronous HTTP requests.
+Responsive Design: A fully responsive product grid built with Tailwind CSS (1 to 4 columns based on screen size).
+State Management: Uses useState and useEffect hooks to handle data lifecycle.
+
+
