@@ -1,6 +1,6 @@
 import React from 'react';
 
-/** * Atom 1: UserAvatar
+/** * Atom 1: UserAvatar 
  * Logic: Displays user image with a dynamic online pulse indicator
  */
 const UserAvatar = ({ image, isOnline }) => (
@@ -16,7 +16,7 @@ const UserAvatar = ({ image, isOnline }) => (
   </div>
 );
 
-/** * Atom 2: InfoRow
+/** * Atom 2: InfoRow 
  * Logic: Reusable component for displaying professional metadata
  */
 const InfoRow = ({ label, value }) => (
@@ -26,16 +26,25 @@ const InfoRow = ({ label, value }) => (
   </div>
 );
 
-/** * Main Component: ProfileLab
- * Logic: Orchestrates all atoms and implements the Master Hub "Reverse Hover" UI
+/** * Main Component: ProfileLab 
+ * Features: Internal Vertical Header, Props Driven Data, Master Hub Buttons
  */
 function ProfileLab({ userData }) {
   return (
     <div className="bg-[#161b22] border border-slate-800 p-8 rounded-3xl shadow-2xl w-full max-w-sm hover:border-[#27C8F5]/50 transition-all duration-500 group">
+      
+      {/* 🚀 INTERNAL HEADER: Vertical Title & Framework Tag */}
+      <div className="flex flex-col items-center mb-8 border-b border-slate-800 pb-6 text-center">
+        <h4 style={{ color: '#27C8F5' }} className="text-[14px] font-black uppercase tracking-[0.2em] mb-3">
+           Atomic Component Lab
+        </h4>        
+      </div>
+
+      {/* Profile Section */}
       <div className="flex flex-col items-center">
         <UserAvatar image={userData.image} isOnline={userData.isOnline} />
         
-        <h2 className="text-white text-xl font-black mt-4 group-hover:text-[#27C8F5] transition-colors">
+        <h2 className="text-white text-xl font-black mt-4 group-hover:text-[#27C8F5] transition-colors text-center">
             {userData.name}
         </h2>
         
@@ -44,46 +53,47 @@ function ProfileLab({ userData }) {
         </span>
       </div>
 
+      {/* Metadata Section */}
       <div className="mt-8 space-y-1">
         <InfoRow label="Expertise" value={userData.skills} />
         <InfoRow label="HQ" value={userData.location} />
         <InfoRow label="Experience" value={userData.experience} />
         
-        <div className="mt-6 text-center">
+        <div className="mt-6 text-center px-2">
             <p className="text-slate-400 text-xs italic leading-relaxed">
                 {userData.bio || "No professional summary provided."}
             </p>
         </div>
       </div>
 
-      {/* --- Master Hub Style: Accurate Bold Reverse Hover --- */}
+      {/* --- Master Hub Style Buttons --- */}
       <div className="mt-8 grid grid-cols-2 gap-4">
         
-        {/* Follow Button (Filled Cyan) */}
+        {/* Follow Button (Uses Global btn-master-hub class) */}
         <button 
-            className="btn btn-master-hub text-uppercase py-2 shadow-sm transition-all" 
-            style={{ fontSize: '11px', fontWeight: '900' }} // Extra Bold for Master Hub look
+            className="btn btn-master-hub text-uppercase py-2" 
+            style={{ fontSize: '11px', fontWeight: '900' }}
         >
           Follow ➔
         </button>
 
-        {/* Message Button (Accurate Bold Reverse Hover) */}
+        {/* Message Button (Manual Reverse Hover Override) */}
         <button 
           className="btn text-uppercase py-2 transition-all"
           style={{ 
             border: '2px solid #27C8F5', 
             fontSize: '11px',
-            fontWeight: '900', // Making the text BOLD initially
+            fontWeight: '900', 
             backgroundColor: 'transparent',
             color: '#27C8F5' 
           }}
           onMouseOver={(e) => {
-            e.target.style.backgroundColor = '#27C8F5'; 
-            e.target.style.color = '#000000'; // Text becomes Black on Hover
+            e.currentTarget.style.backgroundColor = '#27C8F5'; 
+            e.currentTarget.style.color = '#000000';
           }}
           onMouseOut={(e) => {
-            e.target.style.backgroundColor = 'transparent';
-            e.target.style.color = '#27C8F5'; // Text returns to Cyan
+            e.currentTarget.style.backgroundColor = 'transparent';
+            e.currentTarget.style.color = '#27C8F5';
           }}
         >
           Message

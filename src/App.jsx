@@ -1,23 +1,24 @@
 import React from 'react';
+
 // Bootstrap UI Imports
 import Header from './components/bootstrap-ui/Header';
 import PathCard from './components/bootstrap-ui/PathCard';
 import Pinterest from './components/bootstrap-ui/Pinterest';
 import StatusModule from './components/bootstrap-ui/StatusModule';
+
 // Tailwind UI Imports
 import TailwindShowcase from './components/tailwind-ui/TailwindShowcase';
-import ProfileLab from './components/tailwind-ui/ProfileLab'; // New Day 43 Component
+import ProfileLab from './components/tailwind-ui/ProfileLab';
+import ProductModule from './components/tailwind-ui/ProductModule';
 
 function App() {
-  // 1. User Identity Data (Day 41 Concept)
   const currentUser = {
     username: "Gunasekaran",
     useremail: "gunasekaran006@gmail.com",
-    status: true, 
-    loginstatus: true 
+    status: true,
+    loginstatus: true
   };
 
-  // 2. Day 43 Props Data: Professional Tech Profile
   const techUserData = {
     name: "Gunasekaran S",
     role: "AI-Enhanced MERN Architect",
@@ -29,19 +30,11 @@ function App() {
     isOnline: true
   };
 
-  // --- Logic Functions ---
-  function handleRefresh() {
-    alert("System Refresh Initiated for: " + currentUser.username);
-  }
-
-  function handleDeploy(assetName) {
-    alert(`🚀 Deployment Started: ${assetName}\nStatus: Successfully pushed to production!`);
-    console.log(`Deployment Log: ${assetName} initiated by ${currentUser.username}`);
-  }
+  function handleRefresh() { alert("System Refresh Initiated!"); }
+  function handleDeploy(assetName) { alert(`🚀 Deployment Started: ${assetName}`); }
 
   return (
     <div className="bg-dark text-light min-vh-100 pb-5" style={{ fontFamily: 'sans-serif' }}>
-      {/* Bootstrap Component */}
       <Header />
 
       <div className="container mt-5">
@@ -49,65 +42,87 @@ function App() {
           <i className="bi bi-box-seam me-2"></i> Zero to Infinity: Multi-Framework Integration Lab
         </h2>
 
-        {/* Section 1: System Identity (Day 41 - Bootstrap) */}
+        {/* Section 1: System Identity */}
         <div className="row mb-5">
           <div className="col-12">
-            <h3 className="h6 text-secondary text-uppercase mb-3">Core System Engine</h3>
-            <StatusModule
-              user={currentUser}
-              onRefresh={handleRefresh}
-            />
+            <StatusModule user={currentUser} onRefresh={handleRefresh} />
           </div>
         </div>
 
-        {/* Section 2: Navigation Grid (Bootstrap) */}
-        <div className="row g-4 mb-5">
-          <div className="col-md-4">
-            <PathCard
-              title="Tech & Innovation Grid"
-              icon="📌"
-              iconColor="#E60023"
-              desc="Demonstrating Pinterest-style Masonry layout using Bootstrap and Custom CSS."
-              link="#pinterest-demo"
-            />
-          </div>
+       {/* --- Section 2: Navigation Grid (Step-by-Step Order with Detailed Context) --- */}
+<div className="row g-4 mb-5">
+  
+  {/* Card 1: Props Lab */}
+  <div className="col-md-3">
+    <PathCard 
+      title="1. Props Lab" 
+      icon="🆔" 
+      iconColor="#27C8F5" 
+      desc="Atomic Architecture: Reusable Atoms (Avatar, InfoRow) driven by professional tech profile Props." 
+      framework="TAILWIND CSS" // ⚡ Added
+      link="#profile-lab" 
+    />
+  </div>
 
-          <div className="col-md-4">
-            <PathCard
-              title="Props Lab"
-              icon="🆔"
-              iconColor="#27C8F5"
-              desc="Showcasing Atomic Component Architecture and Props-driven UI using Tailwind logic."
-              link="#profile-lab"
-            />
-          </div>
+  {/* Card 2: Mapping Lab */}
+  <div className="col-md-3">
+    <PathCard 
+      title="2. Mapping Lab" 
+      icon="📊" 
+      iconColor="#F97316" 
+      desc="Dynamic Product Data Mapping: Advanced Array processing with Filter, Sort, and Cart logic." 
+      framework="TAILWIND CSS" // ⚡ Added
+      link="#product-lab" 
+    />
+  </div>
 
-          <div className="col-md-4">
-            <PathCard
-              title="Tailwind UI Assets"
-              icon="⚡"
-              iconColor="#38BDF8"
-              desc="Exploring Utility-first rapid UI development and Framework coexistence."
-              link="#tailwind-demo"
-            />
+  {/* Card 3: Pinterest Grid */}
+  <div className="col-md-3">
+    <PathCard 
+      title="3. Pinterest Grid" 
+      icon="📌" 
+      iconColor="#E60023" 
+      desc="Masonry Layout Showcase: Implementing complex grid systems for responsive image heights." 
+      framework="BOOTSTRAP 5" // ⚡ Added
+      link="#pinterest-demo" 
+    />
+  </div>
+
+  {/* Card 4: Tailwind UI */}
+  <div className="col-md-3">
+    <PathCard 
+      title="4. Tailwind UI" 
+      icon="⚡" 
+      iconColor="#38BDF8" 
+      desc="Digital UI Assets: Exploring Utility-first development with Deploy-ready Asset modules." 
+      framework="TAILWIND CSS" // ⚡ Added
+      link="#tailwind-demo" 
+    />
+  </div>
+
+</div>
+
+        {/* --- LIVE MODULES (Line by Line) --- */}
+
+        {/* 1. Atomic Component Lab - Title Moved Inside & Cyan Color */}
+        <div id="profile-lab" className="mt-5 pt-5 border-t border-slate-800 flex flex-col items-center">
+          <ProfileLab userData={techUserData} />
+        </div>
+
+        {/* 2. Dynamic Product Mapping (No External Title) */}
+        <div id="product-lab" className="mt-5 pt-5 border-t border-slate-800">
+          <ProductModule />
+        </div>
+
+        {/* 3. Bootstrap Pinterest Showcase (No External Title) */}
+        <div id="pinterest-demo" className="mt-5 pt-5 border-t border-secondary">
+          <div className="p-4 rounded bg-black shadow-lg border border-secondary">
+            <Pinterest />
           </div>
         </div>
 
-        {/* Section 3: Day 43 Live Module (Tailwind Layer) */}
-        <div id="profile-lab" className="mt-5 mb-5 flex flex-col items-center">
-            <h3 className="text-xl font-bold text-info mb-4 text-center">🚀Atomic Component Lab</h3>
-            {/* Logic: Passing techUserData to ProfileLab via Props */}
-            <ProfileLab userData={techUserData} />
-        </div>
-        
-        {/* Section 4: Bootstrap Pinterest Showcase */}
-        <div id="pinterest-demo" className="mt-5 p-4 border border-secondary rounded bg-black shadow-lg">
-          <h3 className="h5 text-warning mb-4">🚀 Live Module: Pinterest Showcase (CSS Grid)</h3>
-          <Pinterest />
-        </div>
-
-        {/* Section 5: Tailwind Showcase */}
-        <div id="tailwind-demo" className="mt-5">
+        {/* 4. Tailwind Assets Showcase (No External Title) */}
+        <div id="tailwind-demo" className="mt-5 pt-5 border-t border-slate-800">
           <TailwindShowcase onDeploy={handleDeploy} />
         </div>
 
