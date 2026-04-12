@@ -142,7 +142,7 @@ To master the art of building **Atomic Components** in React and passing dynamic
 
 
 ----------------------------------------------------
-
+day 44-react-list
 
 Array Mapping & Dynamic List Rendering
 
