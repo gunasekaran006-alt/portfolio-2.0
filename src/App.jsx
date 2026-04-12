@@ -10,6 +10,9 @@ import StatusModule from './components/bootstrap-ui/StatusModule';
 import TailwindShowcase from './components/tailwind-ui/TailwindShowcase';
 import ProfileLab from './components/tailwind-ui/ProfileLab';
 import ProductModule from './components/tailwind-ui/ProductModule';
+import StateLab from './components/tailwind-ui/StateLab';
+import UserEngine from './components/tailwind-ui/UserEngine';
+
 
 function App() {
   const currentUser = {
@@ -49,58 +52,70 @@ function App() {
           </div>
         </div>
 
-       {/* --- Section 2: Navigation Grid (Step-by-Step Order with Detailed Context) --- */}
-<div className="row g-4 mb-5">
-  
-  {/* Card 1: Props Lab */}
-  <div className="col-md-3">
-    <PathCard 
-      title="1. Props Lab" 
-      icon="🆔" 
-      iconColor="#27C8F5" 
-      desc="Atomic Architecture: Reusable Atoms (Avatar, InfoRow) driven by professional tech profile Props." 
-      framework="TAILWIND CSS" // ⚡ Added
-      link="#profile-lab" 
-    />
-  </div>
+        {/* --- Section 2: Navigation Grid (Step-by-Step Order with Detailed Context) --- */}
+        <div className="row g-4 mb-5">
 
-  {/* Card 2: Mapping Lab */}
-  <div className="col-md-3">
-    <PathCard 
-      title="2. Mapping Lab" 
-      icon="📊" 
-      iconColor="#F97316" 
-      desc="Dynamic Product Data Mapping: Advanced Array processing with Filter, Sort, and Cart logic." 
-      framework="TAILWIND CSS" // ⚡ Added
-      link="#product-lab" 
-    />
-  </div>
+          {/* Card 1: Props Lab */}
+          <div className="col-md-3">
+            <PathCard
+              title="1. Props Lab"
+              icon="🆔"
+              iconColor="#27C8F5"
+              desc="Atomic Architecture: Reusable Atoms (Avatar, InfoRow) driven by professional tech profile Props."
+              framework="TAILWIND CSS" // ⚡ Added
+              link="#profile-lab"
+            />
+          </div>
 
-  {/* Card 3: Pinterest Grid */}
-  <div className="col-md-3">
-    <PathCard 
-      title="3. Pinterest Grid" 
-      icon="📌" 
-      iconColor="#E60023" 
-      desc="Masonry Layout Showcase: Implementing complex grid systems for responsive image heights." 
-      framework="BOOTSTRAP 5" // ⚡ Added
-      link="#pinterest-demo" 
-    />
-  </div>
+          {/* Card 2: Mapping Lab */}
+          <div className="col-md-3">
+            <PathCard
+              title="2. Mapping Lab"
+              icon="📊"
+              iconColor="#F97316"
+              desc="Dynamic Product Data Mapping: Advanced Array processing with Filter, Sort, and Cart logic."
+              framework="TAILWIND CSS" // ⚡ Added
+              link="#product-lab"
+            />
+          </div>
 
-  {/* Card 4: Tailwind UI */}
-  <div className="col-md-3">
-    <PathCard 
-      title="4. Tailwind UI" 
-      icon="⚡" 
-      iconColor="#38BDF8" 
-      desc="Digital UI Assets: Exploring Utility-first development with Deploy-ready Asset modules." 
-      framework="TAILWIND CSS" // ⚡ Added
-      link="#tailwind-demo" 
-    />
-  </div>
+          {/* Card 3: Pinterest Grid */}
+          <div className="col-md-3">
+            <PathCard
+              title="3. Pinterest Grid"
+              icon="📌"
+              iconColor="#E60023"
+              desc="Masonry Layout Showcase: Implementing complex grid systems for responsive image heights."
+              framework="BOOTSTRAP 5" // ⚡ Added
+              link="#pinterest-demo"
+            />
+          </div>
 
-</div>
+          {/* Card 4: Tailwind UI */}
+          <div className="col-md-3">
+            <PathCard
+              title="4. Tailwind UI"
+              icon="⚡"
+              iconColor="#38BDF8"
+              desc="Digital UI Assets: Exploring Utility-first development with Deploy-ready Asset modules."
+              framework="TAILWIND CSS" // ⚡ Added
+              link="#tailwind-demo"
+            />
+          </div>
+
+          {/* Navigation Grid */}
+          <div className="col-md-3">
+            <PathCard
+              title="5. Hooks Lab"
+              icon="🪝"
+              iconColor="#A855F7"
+              desc="State Management: Implementing useState for login, counters, and payment flows."
+              framework="TAILWIND CSS"
+              link="#hooks-lab"
+            />
+          </div>
+
+        </div>
 
         {/* --- LIVE MODULES (Line by Line) --- */}
 
@@ -125,6 +140,13 @@ function App() {
         <div id="tailwind-demo" className="mt-5 pt-5 border-t border-slate-800">
           <TailwindShowcase onDeploy={handleDeploy} />
         </div>
+
+        {/* 5. State Management Lab & 6. API User Engine */}
+        <div id="hooks-lab" className="mt-5 pt-5 border-t border-slate-800 flex flex-col items-center">
+          <StateLab />
+          <UserEngine />
+        </div>
+
 
       </div>
     </div>
