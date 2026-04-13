@@ -13,7 +13,7 @@ import ProductModule from './components/tailwind-ui/ProductModule';
 import StateLab from './components/tailwind-ui/StateLab';
 import UserEngine from './components/tailwind-ui/UserEngine';
 import AxiosProducts from './components/tailwind-ui/AxiosProducts';
-
+import HomasIndex from './components/tailwind-ui/HomasIndex'
 
 function App() {
   const currentUser = {
@@ -42,6 +42,9 @@ function App() {
       <Header />
 
       <div className="container mt-5">
+        
+        <HomasIndex />
+
         <h2 className="h4 border-bottom border-secondary pb-2 mb-4" style={{ color: '#61DAFB' }}>
           <i className="bi bi-box-seam me-2"></i> Zero to Infinity: Multi-Framework Integration Lab
         </h2>
