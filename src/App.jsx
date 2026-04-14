@@ -13,7 +13,7 @@ import ProductModule from './components/tailwind-ui/ProductModule';
 import StateLab from './components/tailwind-ui/StateLab';
 import UserEngine from './components/tailwind-ui/UserEngine';
 import AxiosProducts from './components/tailwind-ui/AxiosProducts';
-import HomasIndex from './components/tailwind-ui/HomasIndex';
+import HomasIndex from './components/tailwind-ui/edtech-master-child-architecture/HomasIndex';
 
 function App() {
   // ⚡ State Logic (Page Navigation)
@@ -44,11 +44,15 @@ function App() {
     <div className="bg-dark text-light min-vh-100 pb-5" style={{ fontFamily: 'sans-serif' }}>
       <Header />
 
-      {/* ⚡ Conditional Rendering Logic start */}
+      {/* ⚡ Conditional Rendering Logic start 
+      SPA Conditional Rendering (Single Page Application Logic):
+      The logic `{currentView === 'home' ? (Old) : (New)}` that we implemented in `App.jsx` is entirely novel.
+      This technique—which involves hiding an entire website and displaying another without the page ever reloading (refreshing)—is known as an SPA (Single Page Application). This constitutes the greatest strength of React. */}
+
       {currentView === 'home' ? (
-        
+
         <div className="container mt-5">
-          
+
           {/* Header & Toggle Button */}
           <div className="d-flex justify-content-between align-items-center border-bottom border-secondary pb-2 mb-4">
             <h2 className="h4 m-0" style={{ color: '#61DAFB' }}>
@@ -189,7 +193,7 @@ function App() {
           <button onClick={() => setCurrentView('home')} className="btn btn-outline-light mb-4 d-flex align-items-center gap-2">
             ⬅ Back to Portfolio Dashboard
           </button>
-          
+
           <HomasIndex />
         </div>
 

@@ -5,8 +5,9 @@ import HomePageStats from './HomePageStats';
 import HomasAbout from './HomasAbout';
 import HomasFeatures from './HomasFeatures';
 import HomasCourses from './HomasCourses';
-import HomasAppSteps from './HomasAppSteps';
+import HomasMobileApp from './HomasMobileApp';
 import HomasFooter from './HomasFooter';
+
 
 function HomasIndex() {
   return (
@@ -18,7 +19,7 @@ function HomasIndex() {
       <HomasAbout />
       <HomasFeatures />
       <HomasCourses />
-      <HomasAppSteps />
+      <HomasMobileApp />
       <HomasFooter />
     </div>
   );
