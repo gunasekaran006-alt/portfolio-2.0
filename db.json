@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "id": "3025",
+      "username": "abc",
+      "email": "abc@gmail.com",
+      "status": "Present"
+    },
+    {
+      "username": "xyz",
+      "email": "xyz@mail.com",
+      "status": "Absent",
+      "id": "3026"
+    }
+  ]
+}

@@ -14,6 +14,7 @@ import StateLab from './components/tailwind-ui/StateLab';
 import UserEngine from './components/tailwind-ui/UserEngine';
 import AxiosProducts from './components/tailwind-ui/AxiosProducts';
 import HomasIndex from './components/tailwind-ui/edtech-master-child-architecture/HomasIndex';
+import TeamDirectory from './components/tailwind-ui/TeamDirectory';
 
 function App() {
   // ⚡ State Logic (Page Navigation)
@@ -55,7 +56,7 @@ function App() {
 
           {/* Header & Toggle Button */}
           <div className="d-flex justify-content-between align-items-center border-bottom border-secondary pb-2 mb-4">
-            <h2 className="h4 m-0" style={{ color: '#61DAFB' }}>
+            <h2 className="h4 m-0" style={{ color: '#27C8F5' }}>
               <i className="bi bi-box-seam me-2"></i> Zero to Infinity: Multi-Framework Integration Lab
             </h2>
             <button onClick={() => setCurrentView('homas')} className="btn btn-warning fw-bold shadow-sm">
@@ -114,7 +115,7 @@ function App() {
               <PathCard
                 title="4. Tailwind UI"
                 icon="⚡"
-                iconColor="#38BDF8"
+                iconColor="#27C8F5"
                 desc="Digital UI Assets: Exploring Utility-first development with Deploy-ready Asset modules."
                 framework="TAILWIND CSS"
                 link="#tailwind-demo"
@@ -142,6 +143,18 @@ function App() {
                 desc="Advanced Data Fetching: Using Axios to retrieve and render complex product JSON objects."
                 framework="TAILWIND CSS"
                 link="#axios-lab"
+              />
+            </div>
+
+            {/* Card 7: CRUD Data Engine */}
+            <div className="col-md-3">
+              <PathCard
+                title="CRUD Engine"
+                icon="⚙️"
+                iconColor="#10B981"
+                desc="Full-Stack Data Management: Axios REST API with Regex Form Validations."
+                framework="TAILWIND CSS"
+                link="#crud-lab"
               />
             </div>
 
@@ -182,6 +195,11 @@ function App() {
             <AxiosProducts />
           </div>
 
+          {/* 8. Full CRUD Data Engine Lab */}
+          <div id="crud-lab" className="mt-5 pt-5 border-t border-slate-800 flex flex-col items-center">
+            <TeamDirectory />
+          </div>
+
         </div>
 
       ) : (
@@ -199,6 +217,8 @@ function App() {
 
       )}
       {/* ⚡ Conditional Rendering Logic End */}
+
+    
 
     </div>
   );
