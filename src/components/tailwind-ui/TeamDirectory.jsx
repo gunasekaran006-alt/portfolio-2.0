@@ -13,7 +13,7 @@ function TeamDirectory() {
     try {
       const response = await axios.get(API);
 
-      if (ArrayBuffer.isArray(response.data)) {
+      if (Array.isArray(response.data)) {
         setTeam(response.data);
       } else {
         setTeam([]);
