@@ -6,7 +6,7 @@ function TeamDirectory() {
   const [form, setForm] = useState({ username: "", email: "", status: "Present" });
   const [editId, setEditId] = useState(null);
 
-  const API = "https://my-json-server-api-8lqb.onrender.com";  // http://localhost:3001/users
+  const API = "https://my-json-server-api-8lqb.onrender.com/users";  // http://localhost:3001/users
   const standardCyan = "#27C8F5";
 
   const getTeam = async () => {
