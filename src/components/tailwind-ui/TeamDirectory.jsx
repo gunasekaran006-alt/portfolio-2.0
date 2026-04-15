@@ -6,7 +6,7 @@ function TeamDirectory() {
   const [form, setForm] = useState({ username: "", email: "", status: "Present" });
   const [editId, setEditId] = useState(null);
 
-  const API = "http://localhost:3001/users";
+  const API = "https://my-json-server-api-8lqb.onrender.com";  // http://localhost:3001/users
   const standardCyan = "#27C8F5";
 
   const getTeam = async () => {
@@ -31,9 +31,9 @@ function TeamDirectory() {
       
       <div className="text-center mb-12">
         <h2 className="text-4xl font-black mb-2 uppercase tracking-tighter" style={{ color: standardCyan }}>
-          7. CRUD Data Engine
+          CRUD Data Engine
         </h2>
-        <p className="text-gray-600 text-[10px] tracking-[0.5em] uppercase font-bold">Standardized Bento Symmetry</p>
+        <p className="text-gray-600 text-[14px] tracking-[0.9em] uppercase font-bold">BENTO GRID ARCHITECTURE & REST API</p>
       </div>
 
       <div className='grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch'>
@@ -45,8 +45,8 @@ function TeamDirectory() {
             <input value={form.username} onChange={(e) => setForm({...form, username: e.target.value})} className='w-full bg-black text-white p-4 border border-slate-800 rounded-2xl focus:border-[#27C8F5] outline-none transition-all' type="text" placeholder='Full Name' />
             <input value={form.email} onChange={(e) => setForm({...form, email: e.target.value})} className='w-full bg-black text-white p-4 border border-slate-800 rounded-2xl focus:border-[#27C8F5] outline-none transition-all' type="text" placeholder='Work Email' />
             <select value={form.status} onChange={(e) => setForm({...form, status: e.target.value})} className='w-full bg-black text-white p-4 border border-slate-800 rounded-2xl outline-none cursor-pointer'>
-              <option value="Present">🟢 Present Status</option>
-              <option value="Absent">🔴 Absent Status</option>
+              <option value="Present">🟢 Present </option>
+              <option value="Absent">🔴 Absent </option>
             </select>
             <button type="submit" className="btn-master-hub mt-4">
               {editId ? "UPDATE DATA ➔" : "EXECUTE ENTRY ➔"}
@@ -72,7 +72,7 @@ function TeamDirectory() {
               </div>
 
               {/* ⚡ ACTION BUTTONS: Pushed to the right with md:pr-4 */}
-              <div className='flex gap-4 mt-8 md:mt-0 md:ml-auto md:pr-2'> 
+              <div className='flex gap-4 mt-5 md:mt-0 md:ml-auto md:pr-2'> 
                 <button 
                   onClick={() => {setForm(data); setEditId(data.id)}} 
                   className='min-w-[120px] py-3 text-[#27C8F5] font-black text-[11px] uppercase tracking-widest border-2 border-slate-800 hover:bg-[#27C8F5] hover:text-black transition-all duration-300 shadow-sm'

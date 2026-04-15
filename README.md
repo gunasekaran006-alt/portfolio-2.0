@@ -217,3 +217,39 @@ Here are the "Under the Hood" Engineering & UI/UX:
 
 --------------------------------------------
 
+🛠️ Key Learnings (Day 47):
+Symmetric Bento Architecture: Mastered the art of balancing layout heights using items-stretch and flex-1, ensuring the Left Management Console and Right User Cards maintain equal height for a premium UI feel.
+
+JSON Server Mastery: Configured and managed a mock backend server to handle real-time data persistence.
+
+Advanced CRUD Operations:
+
+Create: Implementing data entry via a structured management console.
+
+Read: Fetching and displaying dynamic user records from the server.
+
+Update: Building a smooth transition between view and edit modes.
+
+Delete: Executing record removal with real-time UI updates.
+
+UI/UX Precision:
+
+Implemented specific Border Radii (20px) for action buttons to ensure a modern look.
+
+Managed internal spacing (Gaps) within Bento tiles to prevent element crowding.
+
+Consistent branding using the Standard Cyan (#27C8F5) theme.
+
+💻 Tech Stack:
+Frontend: React.js (Hooks & Functional Components)
+
+Styling: Tailwind CSS (Custom Grid Logic)
+
+API Handling: Axios
+
+Backend (Mock): JSON-Server
+
+Build Tool: Vite
+
+------------------------------------------------
+
