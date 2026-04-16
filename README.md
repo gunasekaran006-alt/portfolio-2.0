@@ -247,5 +247,40 @@ API Client: Axios
 Backend (Live): JSON-Server (Deployed on Render.com)
 
 Deployment: Vercel (Frontend)
+
 ------------------------------------------------
+
+# 🚀 Day 48: React Router Integration & SPA Architecture
+
+## 🎯 Project Overview
+This module demonstrates the evolution of our Portfolio Web Application from a basic state-driven UI to a fully functional **Single Page Application (SPA)** using `react-router-dom`. We successfully decoupled the manual conditional rendering (`useState`) and implemented a robust, URL-based routing architecture.
+
+## 🛠️ Tech Stack
+* **Frontend Library:** React.js (v18+)
+* **Routing:** React Router DOM
+* **Styling:** Tailwind CSS + Bootstrap 5 (Hybrid Multi-Framework Integration)
+* **Icons:** Bootstrap Icons
+
+---
+
+## 🧠 Core Concepts Mastered (Day 48)
+
+### 1. The Core Routing Engine (`BrowserRouter` & `Routes`)
+* Transitioned from component-level state toggling to Global URL Routing.
+* Wrapped the entire application in `<BrowserRouter>` inside `main.jsx`.
+* Implemented `<Routes>` and `<Route>` to define exact paths (`/` for Dashboard, `/edtech` for Ed-Tech Platform).
+
+### 2. Client-Side Navigation (`Link`)
+* Replaced traditional `<a href>` and `<button onClick>` with `<Link to="...">`.
+* Achieved **zero-page-reload** navigation, ensuring lightning-fast transitions and preserving application state.
+
+### 3. Global vs. Local Layouts
+* **Global Components:** Placed `<Header />` and `<Navbar />` outside the `<Routes>` block so they persist across all page transitions.
+* **Contextual Navigation:** Used the `useLocation` hook inside the Navbar to dynamically detect the active URL path and apply "Active State" styling (Cyan highlight) to the current route.
+
+### 4. Error Handling (404 Not Found)
+* Implemented a Catch-All route (`path="*"`) to gracefully handle invalid URLs.
+* Designed an Ultra-Responsive, Tailwind-powered `NotFound.jsx` component with a return-to-base safe action.
+
+------------------------------------------------------------
 
