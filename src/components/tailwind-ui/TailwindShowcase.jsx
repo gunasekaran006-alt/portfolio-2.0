@@ -35,7 +35,8 @@ function TailwindShowcase({ onDeploy }) {
                 {assets.map((item) => (
                     <div key={item.id} className="group bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden hover:border-cyan-500/50 transition-all duration-300">
                         <div className="relative overflow-hidden">
-                            <img src={item.img} className="w-full h-72 lg:h-80 object-cover group-hover:scale-110 transition-transform duration-500" alt={item.title} />
+                            {/* <img src={item.img} className="w-full h-72 lg:h-80 object-cover group-hover:scale-110 transition-transform duration-500" alt={item.title} /> */}
+                            <img src={item.img} className="w-full h-auto max-h-[300px] object-cover group-hover:scale-110 transition-transform duration-500" alt={item.title} />
                             <div className="absolute top-2 right-2 bg-black/60 backdrop-blur-md px-2 py-1 rounded-lg text-xs font-bold text-white">
                                 {item.price}
                             </div>

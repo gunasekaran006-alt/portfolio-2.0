@@ -3,7 +3,7 @@ import "./styles/pinterest.css";
 
 function Pinterest() {
   return (
-    <div className='p-8 bg-[#0d1117] border border-slate-800 rounded-3xl shadow-2xl transition-all'>
+    <div className='p-4 sm:p-6 md:p-8 bg-[#0d1117] border border-slate-800 rounded-3xl shadow-2xl transition-all'>
       
       {/* Integrated Header: Standard Cyan Title & Light Grey Tag */}
       <div className="flex justify-between items-center mb-8 border-b border-slate-800 pb-4">
@@ -26,6 +26,7 @@ function Pinterest() {
             return (
                 <div key={index} className={`item ${size} border-2 border-slate-800 hover:border-[#27C8F5] transition-all duration-300 rounded-2xl overflow-hidden group cursor-pointer`}>
                     <img className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src={images[index]} alt="Lab Asset" />
+                    {/* <img className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500" src={images[index]} alt="Lab Asset" /> */}
                 </div>
             )
         })}

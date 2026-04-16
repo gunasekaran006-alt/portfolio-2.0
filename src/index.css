@@ -36,3 +36,10 @@ html {
     transform: scale(0.95) !important;
     box-shadow: none !important;
 }
+
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
