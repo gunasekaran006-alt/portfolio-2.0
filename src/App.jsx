@@ -90,7 +90,7 @@ function App() {
             {/* Dashboard Header */}
             <div className="d-flex justify-content-between align-items-center border-bottom border-secondary pb-2 mb-4">
               <h2 className="h4 m-0" style={{ color: '#27C8F5' }}>
-                <i className="bi bi-box-seam me-2"></i> Zero to Infinity: Multi-Framework Integration Lab
+                <i className="bi bi-box-seam me-2"></i> Multi-Framework Integration Lab
               </h2>
 
 
