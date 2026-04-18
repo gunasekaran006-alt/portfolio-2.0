@@ -80,7 +80,7 @@ function AxiosProducts() {
                   // ⚡ 4. e.stopPropagation() prevents the card click event from firing when button is clicked!
                   onClick={(e) => {
                     e.stopPropagation();
-                    alert(`🛒 ${data.title} added via Axios Engine!`);
+                    alert(`🛒 ${data.title} added to cart from Dashboard!`);
                   }}
                   className='w-full mt-2 !bg-transparent border-2 !border-[#27C8F5] !text-[#27C8F5] font-black py-2 !rounded-[12px] text-[11px] uppercase transition-all duration-300 outline-none
                   hover:!bg-[#27C8F5] hover:!text-black 

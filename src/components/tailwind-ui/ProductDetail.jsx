@@ -94,7 +94,7 @@ const ProductDetail = () => {
 
             <div className="flex gap-4">
               <button 
-                onClick={() => alert(`🛒 ${product.title} added to cart!`)}
+                onClick={() => alert(`🛒 ${product.title} added securely from Product Page!`)}
                 className="flex-1 btn-master-hub !py-4 !rounded-2xl text-sm"
               >
                 ADD TO SECURE CART ➔
