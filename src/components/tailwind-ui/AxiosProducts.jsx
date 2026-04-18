@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 
 function AxiosProducts() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  // ⚡ Initialize navigate function
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     // Logic: Fetching data using Axios from DummyJSON
@@ -37,7 +43,9 @@ function AxiosProducts() {
           {products.slice(0, 8).map(data => (
             <div
               key={data.id}
-              className='bg-[#161b22] border border-slate-800 rounded-2xl p-5 hover:border-[#27C8F5] hover:shadow-[0_0_15px_rgba(39,200,245,0.1)] transition-all duration-300 group flex flex-col justify-between'
+              // ⚡ Click event to navigate to Product Detail Page
+              onClick={() => navigate(`/product/${data.id}`)}
+              className='bg-[#161b22] border border-slate-800 rounded-2xl p-5 hover:border-[#27C8F5] hover:shadow-[0_0_15px_rgba(39,200,245,0.1)] transition-all duration-300 group flex flex-col justify-between cursor-pointer'
               style={{ minHeight: '420px' }}
             >
               <div>
@@ -45,7 +53,6 @@ function AxiosProducts() {
                   <img
                     // className='w-full h-40 object-contain group-hover:scale-110 transition-transform duration-500' 
                     className='w-full h-auto max-h-[200px] object-contain group-hover:scale-110 transition-transform duration-500'
-
                     src={data.thumbnail}
                     alt={data.title}
                   />
@@ -68,9 +75,13 @@ function AxiosProducts() {
                   </span>
                 </div>
 
-                {/* 🎯 Master Hub Style Button: Exactly matching your Cart Button */}
+                {/* 🎯 Master Hub Style Button */}
                 <button
-                  onClick={() => alert(`🛒 ${data.title} added via Axios Engine!`)}
+                  // ⚡ 4. e.stopPropagation() prevents the card click event from firing when button is clicked!
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    alert(`🛒 ${data.title} added via Axios Engine!`);
+                  }}
                   className='w-full mt-2 !bg-transparent border-2 !border-[#27C8F5] !text-[#27C8F5] font-black py-2 !rounded-[12px] text-[11px] uppercase transition-all duration-300 outline-none
                   hover:!bg-[#27C8F5] hover:!text-black 
                   focus:!bg-[#27C8F5] focus:!text-black 

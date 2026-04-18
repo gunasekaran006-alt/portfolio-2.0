@@ -22,6 +22,7 @@ import UserEngine from './components/tailwind-ui/UserEngine';
 import AxiosProducts from './components/tailwind-ui/AxiosProducts';
 import HomasIndex from './components/tailwind-ui/edtech-master-child-architecture/HomasIndex';
 import TeamDirectory from './components/tailwind-ui/TeamDirectory';
+import ProductDetail from './components/tailwind-ui/ProductDetail';
 
 function App() {
   // =====================================================================
@@ -101,7 +102,7 @@ function App() {
               </button>
             </div> */}
 
-              
+
             </div>
 
 
@@ -274,8 +275,12 @@ function App() {
           </div>
         } />
 
+        {/* ROUTE 3: DYNAMIC PRODUCT DETAILS PAGE */}
+        <Route path="/product/:id" element={<ProductDetail />} />
 
-        {/* ROUTE 3: 404 NOT FOUND */}
+
+
+        {/* ROUTE 4: 404 NOT FOUND */}
         <Route path="*" element={<NotFound />} />
 
 
