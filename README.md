@@ -282,5 +282,47 @@ This module demonstrates the evolution of our Portfolio Web Application from a b
 * Implemented a Catch-All route (`path="*"`) to gracefully handle invalid URLs.
 * Designed an Ultra-Responsive, Tailwind-powered `NotFound.jsx` component with a return-to-base safe action.
 
-------------------------------------------------------------
+-----------------------------------------------------
+
+# 🚀 Day 49: Advanced React Router & Dynamic URL Parameters
+
+## 🎯 Objective
+To transform a static product listing into a fully interactive **Single Page Application (SPA)** by implementing dynamic routing, programmatic navigation, and external API fetching based on URL parameters. 
+
+**Architectural Approach:** *Non-Destructive Logic Injection.* Instead of writing redundant code, the existing `AxiosProducts.jsx` (Data Engine) was reused. Routing logic was injected without breaking the existing UI or altering the structural integrity of the Master Portfolio Hub.
+
+## 🛠️ Tech Stack
+* **Frontend:** React.js (Vite)
+* **Routing:** React Router DOM (`useParams`, `useNavigate`)
+* **Styling:** Tailwind CSS 4
+* **Data Fetching:** Axios (REST API)
+* **API Engine:** DummyJSON API (`https://dummyjson.com/products`)
+
+## 🧠 Core Concepts Mastered
+
+### 1. Dynamic Routing (`Route path="/product/:id"`)
+Configured `App.jsx` to handle dynamic URL structures. The `:id` acts as a wildcard variable, allowing a single `ProductDetail.jsx` component to dynamically render hundreds of unique products based on the URL parameter.
+
+### 2. Programmatic Navigation (`useNavigate`)
+Replaced standard HTML anchor tags (`<a>`) or React `<Link>` components with `useNavigate()`. This allows navigation to be triggered programmatically via `onClick` events on complex UI containers (like entire Product Cards), enhancing the UX.
+
+### 3. URL Parameter Extraction (`useParams`)
+Implemented the `useParams()` hook inside `ProductDetail.jsx` to intercept the dynamic `:id` from the URL, which is then passed securely into an Axios GET request to fetch highly specific data (`https://dummyjson.com/products/${id}`).
+
+### 4. Event Propagation Control (`e.stopPropagation()`)
+Solved the "Nested Click Event" conflict. By applying `e.stopPropagation()` to the "Add to Cart" button, we successfully prevented event bubbling. Clicking the cart button fires the cart logic (Alert), while clicking the card navigates to the details page—zero conflicts.
+
+## 📂 File Architecture Updates
+
+* `src/App.jsx`: Added the dynamic route for Product Details.
+* `src/components/tailwind-ui/AxiosProducts.jsx`: Injected `useNavigate` for card clicks and `stopPropagation` for button clicks. Kept existing UI untouched.
+* `src/components/tailwind-ui/ProductDetail.jsx`: **[NEW]** Created a premium, responsive details page with synchronized loading states and back navigation.
+
+## 🚀 Key Takeaway
+**DRY Principle (Don't Repeat Yourself):** Achieved maximum Code Reusability by repurposing an existing Data Fetching component rather than building a new one from scratch. The transition is 100% seamless without any browser page reloads, showcasing the true power of React SPA architecture.
+
+
+-----------------------------------------------------
+
+
 
