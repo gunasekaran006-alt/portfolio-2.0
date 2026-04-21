@@ -35,6 +35,8 @@ function App() {
   // =====================================================================
   // ⚡ State Logic (Page Navigation)
   // const [currentView, setCurrentView] = useState('home');
+  
+  const navigate = useNavigate();
 
   // Mock User Data for Status Module
   const currentUser = {
@@ -246,26 +248,26 @@ function App() {
             </div>
 
 
-            {/* ⚡ 9. THE NEW AI MEGA CARD ⚡ */}
+            {/* ⚡ 9. THE NEW AI MEGA CARD (CYAN THEME) ⚡ */}
             <div className="mt-5 pt-5 border-t border-slate-800 flex flex-col items-center mb-10">
               <div
                 onClick={() => navigate('/ai-analyzer')}
-                className="w-full max-w-4xl bg-gradient-to-r from-[#022c22] to-[#064e3b] border border-[#10b981] rounded-[20px] p-8 cursor-pointer hover:shadow-[0_0_30px_rgba(16,185,129,0.3)] transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden group"
+                className="w-full max-w-4xl bg-gradient-to-r from-[#0d1117] to-[#161b22] border border-[#27C8F5] rounded-[20px] p-8 cursor-pointer hover:shadow-[0_0_30px_rgba(39,200,245,0.3)] transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden group"
               >
                 {/* Decoration */}
-                <div className="absolute -right-10 -top-10 text-[#10b981] opacity-10 text-9xl">🧠</div>
+                <div className="absolute -right-10 -top-10 text-[#27C8F5] opacity-10 text-9xl">🧠</div>
 
                 <div className="flex flex-col md:flex-row items-center gap-6 relative z-10">
-                  <div className="w-20 h-20 bg-black/40 rounded-full flex items-center justify-center text-4xl border-2 border-[#10b981]/50 group-hover:scale-110 transition-transform">
+                  <div className="w-20 h-20 bg-black/40 rounded-full flex items-center justify-center text-4xl border-2 border-[#27C8F5]/50 group-hover:scale-110 transition-transform">
                     🤖
                   </div>
                   <div className="text-center md:text-left">
-                    <span className="bg-[#10b981] text-black text-[10px] px-3 py-1 font-black uppercase tracking-widest rounded-full mb-2 inline-block">Featured AI Module</span>
+                    <span className="bg-[#27C8F5] text-black text-[10px] px-3 py-1 font-black uppercase tracking-widest rounded-full mb-2 inline-block">Featured AI Module</span>
                     <h3 className="text-2xl font-black text-white tracking-wide">Real-Time Emotion Analyzer</h3>
-                    <p className="text-[#a7f3d0] text-sm mt-1">Client-side Machine Learning using TensorFlow.js & WebRTC Camera API</p>
+                    <p className="text-slate-400 text-sm mt-1">Client-side Machine Learning using TensorFlow.js & WebRTC Camera API</p>
                   </div>
                   <div className="mt-4 md:mt-0 md:ml-auto">
-                    <button className="bg-transparent border-2 border-[#10b981] text-[#10b981] font-bold py-2 px-6 rounded-full text-sm uppercase tracking-widest group-hover:bg-[#10b981] group-hover:text-black transition-colors">
+                    <button className="bg-transparent border-2 border-[#27C8F5] text-[#27C8F5] font-bold py-2 px-6 rounded-full text-sm uppercase tracking-widest group-hover:bg-[#27C8F5] group-hover:text-black transition-colors">
                       Launch AI ➔
                     </button>
                   </div>
