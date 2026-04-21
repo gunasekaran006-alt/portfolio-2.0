@@ -205,6 +205,18 @@ function App() {
                 />
               </div>
 
+              {/* ⚡ NEW: Card 8: AI Engine */}
+              <div className="col-md-3">
+                <PathCard
+                  title="8. AI Engine"
+                  icon="🧠"
+                  iconColor="#27C8F5"
+                  desc="Real-Time Emotion Analyzer using TensorFlow.js & WebRTC."
+                  framework="MACHINE LEARNING"
+                  link="#ai-lab"
+                />
+              </div>
+
             </div>
 
             {/* --- LIVE MODULES (Line by Line) --- */}
@@ -248,8 +260,8 @@ function App() {
             </div>
 
 
-            {/* ⚡ 9. THE NEW AI MEGA CARD (CYAN THEME) ⚡ */}
-            <div className="mt-5 pt-5 border-t border-slate-800 flex flex-col items-center mb-10">
+            {/* ⚡ 9. THE NEW AI MEGA CARD (CYAN THEME & STANDARD BUTTON) ⚡ */}
+            <div id="ai-lab" className="mt-5 pt-5 border-t border-slate-800 flex flex-col items-center mb-10">
               <div
                 onClick={() => navigate('/ai-analyzer')}
                 className="w-full max-w-4xl bg-gradient-to-r from-[#0d1117] to-[#161b22] border border-[#27C8F5] rounded-[20px] p-8 cursor-pointer hover:shadow-[0_0_30px_rgba(39,200,245,0.3)] transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden group"
@@ -267,7 +279,11 @@ function App() {
                     <p className="text-slate-400 text-sm mt-1">Client-side Machine Learning using TensorFlow.js & WebRTC Camera API</p>
                   </div>
                   <div className="mt-4 md:mt-0 md:ml-auto">
-                    <button className="bg-transparent border-2 border-[#27C8F5] text-[#27C8F5] font-bold py-2 px-6 rounded-full text-sm uppercase tracking-widest group-hover:bg-[#27C8F5] group-hover:text-black transition-colors">
+                    {/* Standard Portfolio Action Button */}
+                    <button 
+                      className='!bg-transparent border-2 !border-[#27C8F5] !text-[#27C8F5] font-black py-2 px-6 !rounded-[12px] text-[12px] uppercase transition-all duration-300 outline-none hover:!bg-[#27C8F5] hover:!text-black focus:!bg-[#27C8F5] focus:!text-black active:!bg-[#27C8F5] active:!text-black' 
+                      style={{ letterSpacing: '1px' }}
+                    >
                       Launch AI ➔
                     </button>
                   </div>

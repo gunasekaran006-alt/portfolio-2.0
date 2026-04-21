@@ -8,16 +8,16 @@ const AIFaceAnalyzer = () => {
   const [emotion, setEmotion] = useState("Initializing AI Engine...");
   const [isModelLoaded, setIsModelLoaded] = useState(false);
 
-  // Emoji Mapping for Wow Factor!
+  // Configuration for Emotion Emoji Mapping
   const emojiMap = { happy: "😄", sad: "😢", angry: "😠", neutral: "😐", surprised: "😲", fearful: "😨", disgusted: "🤢", "No Face Detected": "👤", "Analyzing Face...": "🤖" };
 
-  // 1. Load Models & Start Camera
+  // Initialization Effect: Load Models and Start Webcam
   useEffect(() => {
     let stream = null;
 
     async function startAI() {
       try {
-        const model_url = "/models"; // Make sure models are in public/models
+        const model_url = "/models"; 
         await faceapi.nets.tinyFaceDetector.loadFromUri(model_url);
         await faceapi.nets.faceExpressionNet.loadFromUri(model_url);
         setIsModelLoaded(true);
@@ -36,7 +36,7 @@ const AIFaceAnalyzer = () => {
     
     startAI();
 
-    // ⚡ SUPER IMPORTANT: Cleanup Function to turn off the camera when leaving the page!
+    // ⚡ CRITICAL: Cleanup function to release hardware resources on unmount
     return () => {
       if (stream) {
         stream.getTracks().forEach(track => track.stop());
@@ -44,7 +44,7 @@ const AIFaceAnalyzer = () => {
     };
   }, []);
 
-  // 2. Continuous Emotion Detection
+  // Inference Effect: Run Facial Detection continuously
   useEffect(() => {
     if (!isModelLoaded) return;
 
@@ -58,7 +58,7 @@ const AIFaceAnalyzer = () => {
 
       if (detections.length > 0) {
         const expressions = detections[0].expressions;
-        // MAXIMUM EMOTION FINDING LOGIC
+        // Determine the dominant emotion with highest confidence score
         const maxEmotion = Object.keys(expressions).reduce((a, b) => expressions[a] > expressions[b] ? a : b);
         setEmotion(maxEmotion);
       } else {
@@ -66,6 +66,7 @@ const AIFaceAnalyzer = () => {
       }
     }, 1000);
 
+    // Clear the interval when component unmounts
     return () => clearInterval(interval);
   }, [isModelLoaded]);
 
@@ -73,47 +74,49 @@ const AIFaceAnalyzer = () => {
     <div className="min-h-[90vh] bg-[#0a0a0c] pt-8 pb-20 px-4">
       <div className="max-w-5xl mx-auto">
         
-        {/* Navigation */}
+        {/* Navigation Controls */}
         <button 
           onClick={() => navigate(-1)} 
-          className="mb-8 text-slate-400 hover:text-[#10b981] font-bold text-sm flex items-center gap-2 transition-colors"
+          className="mb-8 text-slate-400 hover:text-[#27C8F5] font-bold text-sm flex items-center gap-2 transition-colors"
         >
           ← Back to Dashboard
         </button>
 
+        {/* Component Header */}
         <div className="text-center mb-10">
             <h1 className="text-3xl md:text-5xl font-black text-white tracking-tight mb-3">
-              AI Face <span className="text-[#10b981]">Analyzer</span>
+              AI Face <span className="text-[#27C8F5]">Analyzer</span>
             </h1>
             <p className="text-slate-400">TensorFlow.js Real-time Neural Network Processing</p>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-8 items-center bg-[#161b22] border border-slate-800 p-8 rounded-[30px] shadow-[0_0_30px_rgba(16,185,129,0.05)] relative overflow-hidden">
+        {/* Main Interface Wrapper */}
+        <div className="flex flex-col lg:flex-row gap-8 items-center bg-[#161b22] border border-slate-800 p-8 rounded-[30px] shadow-[0_0_30px_rgba(39,200,245,0.05)] relative overflow-hidden">
           
-          {/* Decorative Background Glow */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-[#10b981] rounded-full filter blur-[100px] opacity-10"></div>
+          {/* Decorative Glow Effect */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-[#27C8F5] rounded-full filter blur-[100px] opacity-10"></div>
 
-          {/* Left: Camera Feed */}
+          {/* Left Panel: Live Camera Feed */}
           <div className="w-full lg:w-3/5">
             <div className="bg-black rounded-2xl aspect-video flex items-center justify-center relative overflow-hidden border-2 border-slate-800 shadow-xl">
               <video 
                 ref={videoRef} 
                 autoPlay 
                 muted 
-                className="w-full h-full object-cover transform scale-x-[-1]" // scale-x-[-1] acts as a mirror
+                className="w-full h-full object-cover transform scale-x-[-1]" 
               ></video>
               
-              {/* Scanline Effect */}
-              <div className="absolute inset-0 pointer-events-none border border-[#10b981]/30 rounded-2xl overflow-hidden">
-                 <div className="w-full h-1 bg-[#10b981]/50 shadow-[0_0_10px_#10b981] animate-[pulse_2s_ease-in-out_infinite]"></div>
+              {/* Overlay: Animated Scanning Line */}
+              <div className="absolute inset-0 pointer-events-none border border-[#27C8F5]/30 rounded-2xl overflow-hidden">
+                 <div className="w-full h-1 bg-[#27C8F5]/50 shadow-[0_0_10px_#27C8F5] animate-[pulse_2s_ease-in-out_infinite]"></div>
               </div>
             </div>
           </div>
 
-          {/* Right: AI Output Panel */}
+          {/* Right Panel: AI Inference Output */}
           <div className="w-full lg:w-2/5 flex flex-col items-center justify-center p-6 text-center z-10">
             
-            <div className="w-24 h-24 bg-[#10b981]/10 rounded-full flex items-center justify-center mb-6 border border-[#10b981]/30 shadow-[0_0_20px_rgba(16,185,129,0.2)]">
+            <div className="w-24 h-24 bg-[#27C8F5]/10 rounded-full flex items-center justify-center mb-6 border border-[#27C8F5]/30 shadow-[0_0_20px_rgba(39,200,245,0.2)]">
                 <span className="text-5xl">{emojiMap[emotion] || "🤖"}</span>
             </div>
 
@@ -122,10 +125,11 @@ const AIFaceAnalyzer = () => {
               {emotion}
             </div>
 
+            {/* System Status Indicators */}
             <div className="w-full bg-slate-900 rounded-xl p-4 border border-slate-800">
                 <div className="flex items-center justify-between text-xs mb-2">
                     <span className="text-slate-400">Model Status</span>
-                    <span className={isModelLoaded ? "text-[#10b981]" : "text-yellow-500"}>
+                    <span className={isModelLoaded ? "text-[#27C8F5]" : "text-yellow-500"}>
                         {isModelLoaded ? "ONLINE" : "LOADING..."}
                     </span>
                 </div>
