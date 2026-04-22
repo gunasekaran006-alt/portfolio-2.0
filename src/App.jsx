@@ -24,6 +24,8 @@ import HomasIndex from './components/tailwind-ui/edtech-master-child-architectur
 import TeamDirectory from './components/tailwind-ui/TeamDirectory';
 import ProductDetail from './components/tailwind-ui/ProductDetail';
 import AIFaceAnalyzer from './components/tailwind-ui/AIFaceAnalyzer';
+import ReduxLab from './components/tailwind-ui/ReduxLab';
+
 
 function App() {
   // =====================================================================
@@ -35,7 +37,7 @@ function App() {
   // =====================================================================
   // ⚡ State Logic (Page Navigation)
   // const [currentView, setCurrentView] = useState('home');
-  
+
   const navigate = useNavigate();
 
   // Mock User Data for Status Module
@@ -205,6 +207,18 @@ function App() {
                 />
               </div>
 
+              {/* ⚡ NEW: Card 8: Redux Engine ⚡ */}
+              <div className="col-md-3">
+                <PathCard
+                  title="8. Redux Engine"
+                  icon="🏦"
+                  iconColor="#A855F7"
+                  desc="Global State Management using modern Redux Toolkit."
+                  framework="REACT REDUX"
+                  link="#redux-lab"
+                />
+              </div>
+
               {/* ⚡ NEW: Card 8: AI Engine */}
               <div className="col-md-3">
                 <PathCard
@@ -214,6 +228,18 @@ function App() {
                   desc="Real-Time Emotion Analyzer using TensorFlow.js & WebRTC."
                   framework="MACHINE LEARNING"
                   link="#ai-lab"
+                />
+              </div>
+
+              {/* ⚡ NEW: Card 9: Redux Engine */}
+              <div className="col-md-3">
+                <PathCard
+                  title="9. Redux Engine"
+                  icon="🏦"
+                  iconColor="#27C8F5"
+                  desc="Global State Management using modern Redux Toolkit."
+                  framework="REACT REDUX"
+                  link="#redux-lab"
                 />
               </div>
 
@@ -249,16 +275,20 @@ function App() {
               <UserEngine />
             </div>
 
-            {/* 7. Axios Data Engine Lab */}
+            {/* 6. Axios Data Engine Lab */}
             <div id="axios-lab" className="mt-5 pt-5 border-t border-slate-800 flex flex-col items-center">
               <AxiosProducts />
             </div>
 
-            {/* 8. Full CRUD Data Engine Lab */}
+            {/* 7. Full CRUD Data Engine Lab */}
             <div id="crud-lab" className="mt-5 pt-5 border-t border-slate-800 flex flex-col items-center">
               <TeamDirectory />
             </div>
 
+            {/* ⚡ 8. REDUX TOOLKIT LAB ⚡ */}
+            <div id="redux-lab" className="mt-5 pt-5 border-t border-slate-800 flex flex-col items-center">
+              <ReduxLab />
+            </div>
 
             {/* ⚡ 9. THE NEW AI MEGA CARD (CYAN THEME & STANDARD BUTTON) ⚡ */}
             <div id="ai-lab" className="mt-5 pt-5 border-t border-slate-800 flex flex-col items-center mb-10">
@@ -280,8 +310,8 @@ function App() {
                   </div>
                   <div className="mt-4 md:mt-0 md:ml-auto">
                     {/* Standard Portfolio Action Button */}
-                    <button 
-                      className='!bg-transparent border-2 !border-[#27C8F5] !text-[#27C8F5] font-black py-2 px-6 !rounded-[12px] text-[12px] uppercase transition-all duration-300 outline-none hover:!bg-[#27C8F5] hover:!text-black focus:!bg-[#27C8F5] focus:!text-black active:!bg-[#27C8F5] active:!text-black' 
+                    <button
+                      className='!bg-transparent border-2 !border-[#27C8F5] !text-[#27C8F5] font-black py-2 px-6 !rounded-[12px] text-[12px] uppercase transition-all duration-300 outline-none hover:!bg-[#27C8F5] hover:!text-black focus:!bg-[#27C8F5] focus:!text-black active:!bg-[#27C8F5] active:!text-black'
                       style={{ letterSpacing: '1px' }}
                     >
                       Launch AI ➔
