@@ -198,7 +198,7 @@ function App() {
               {/* Card 7: CRUD Data Engine */}
               <div className="col-md-3">
                 <PathCard
-                  title="CRUD Engine"
+                  title="7. CRUD Engine"
                   icon="⚙️"
                   iconColor="#10B981"
                   desc="Full-Stack Data Management: Axios REST API with Regex Form Validations."
@@ -219,10 +219,10 @@ function App() {
                 />
               </div>
 
-              {/* ⚡ NEW: Card 8: AI Engine */}
+              {/* ⚡ NEW: Card 9: AI Engine */}
               <div className="col-md-3">
                 <PathCard
-                  title="8. AI Engine"
+                  title="9. AI Engine"
                   icon="🧠"
                   iconColor="#27C8F5"
                   desc="Real-Time Emotion Analyzer using TensorFlow.js & WebRTC."
@@ -231,18 +231,7 @@ function App() {
                 />
               </div>
 
-              {/* ⚡ NEW: Card 9: Redux Engine */}
-              <div className="col-md-3">
-                <PathCard
-                  title="9. Redux Engine"
-                  icon="🏦"
-                  iconColor="#27C8F5"
-                  desc="Global State Management using modern Redux Toolkit."
-                  framework="REACT REDUX"
-                  link="#redux-lab"
-                />
-              </div>
-
+              
             </div>
 
             {/* --- LIVE MODULES (Line by Line) --- */}
