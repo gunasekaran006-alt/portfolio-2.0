@@ -361,4 +361,37 @@ Enhanced the user experience with dynamic state management (Initializing Model -
 Bridged the gap between traditional UI development and Artificial Intelligence. Demonstrates the capability to build and deploy complex, hardware-accelerated Machine Learning applications entirely within the frontend ecosystem.
 
 -----------------------------------------------------
+# 🚀 Day 51: Enterprise Global State Architecture (Redux Toolkit)
 
+## 🎯 Objective
+To implement a robust, scalable Global State Management system using the modern **Redux Toolkit (RTK)**. This module demonstrates the architectural shift from localized component state (`useState`) to a centralized store, eliminating "prop drilling" and ensuring seamless data synchronization across isolated components.
+
+## 🛠️ Tech Stack
+* **Frontend:** React.js (Vite)
+* **State Management:** Redux Toolkit (`@reduxjs/toolkit`)
+* **Bindings:** React-Redux (`react-redux`)
+* **Styling:** Tailwind CSS 4
+
+## 🧠 Core Concepts Mastered
+
+### 1. Centralized Store Configuration (`configureStore`)
+Established a single source of truth for the application's state. The store is globally injected into the React tree using the `<Provider>` component at the highest level (`main.jsx`), making the state accessible to any child component.
+
+### 2. State Slicing (`createSlice`)
+Modernized Redux development by moving away from traditional boilerplate (switch statements, action types). Created a `counterSlice` that automatically generates action creators and action types that correspond to the reducers and state.
+
+### 3. Action Dispatching (`useDispatch`)
+Engineered "Component A" (The Dispatcher) to broadcast actions (`increment`, `decrement`, `reset`) to the global store, securely mutating the state through predefined reducer functions.
+
+### 4. Reactive State Subscription (`useSelector`)
+Engineered "Component B" (The Receiver) as a completely isolated component that subscribes to the global store. It perfectly synchronizes and re-renders in real-time whenever the globally managed `count` value changes, proving the efficacy of the Redux architecture.
+
+## 📂 File Architecture Updates
+* `src/redux/store.js`: **[NEW]** The central Redux store configuration.
+* `src/redux/counterSlice.js`: **[NEW]** The logic core containing initial state and reducers.
+* `src/main.jsx`: Wrapped the application's root with the Redux `<Provider>`.
+* `src/components/tailwind-ui/ReduxLab.jsx`: **[NEW]** A premium, interactive control panel visually demonstrating the communication between disconnected components via the Redux Store.
+* `src/App.jsx`: Re-architected the portfolio layout. Positioned Redux as the 8th fundamental module, logically leading up to the Capstone AI Engine.
+
+## 🚀 Key Takeaway
+Successfully transitioned from basic React Hooks to an Enterprise-grade State Management pattern. This proves the ability to architect applications that can handle complex data flows, user authentications, and global UI themes without suffering from state-sync bugs or deep prop-drilling.
