@@ -25,7 +25,7 @@ import TeamDirectory from './components/tailwind-ui/TeamDirectory';
 import ProductDetail from './components/tailwind-ui/ProductDetail';
 import AIFaceAnalyzer from './components/tailwind-ui/AIFaceAnalyzer';
 import ReduxLab from './components/tailwind-ui/ReduxLab';
-
+import AuthLab from './components/tailwind-ui/AuthLab';
 
 function App() {
   // =====================================================================
@@ -219,10 +219,23 @@ function App() {
                 />
               </div>
 
-              {/* ⚡ NEW: Card 9: AI Engine */}
+              {/* ⚡ NEW: Card 9: Auth Engine ⚡ */}
               <div className="col-md-3">
                 <PathCard
-                  title="9. AI Engine"
+                  title="9. Auth Engine"
+                  icon="🔐"
+                  iconColor="#10B981"
+                  desc="Redux-powered Authentication System with Login & Register."
+                  framework="REACT REDUX"
+                  link="#auth-lab"
+                />
+              </div>
+
+
+              {/* ⚡ NEW: Card 10: AI Engine */}
+              <div className="col-md-3">
+                <PathCard
+                  title="10. AI Engine"
                   icon="🧠"
                   iconColor="#27C8F5"
                   desc="Real-Time Emotion Analyzer using TensorFlow.js & WebRTC."
@@ -231,7 +244,7 @@ function App() {
                 />
               </div>
 
-              
+
             </div>
 
             {/* --- LIVE MODULES (Line by Line) --- */}
@@ -279,7 +292,13 @@ function App() {
               <ReduxLab />
             </div>
 
-            {/* ⚡ 9. THE NEW AI MEGA CARD (CYAN THEME & STANDARD BUTTON) ⚡ */}
+            {/* ⚡ 9. REDUX AUTH SYSTEM LAB ⚡ */}
+            <div id="auth-lab" className="mt-5 pt-5 border-t border-slate-800 flex flex-col items-center">
+              <AuthLab />
+            </div>
+
+
+            {/* ⚡ 10. THE NEW AI MEGA CARD (CYAN THEME & STANDARD BUTTON) ⚡ */}
             <div id="ai-lab" className="mt-5 pt-5 border-t border-slate-800 flex flex-col items-center mb-10">
               <div
                 onClick={() => navigate('/ai-analyzer')}
