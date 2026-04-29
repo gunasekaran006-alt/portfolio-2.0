@@ -26,6 +26,8 @@ import ProductDetail from './components/tailwind-ui/ProductDetail';
 import AIFaceAnalyzer from './components/tailwind-ui/AIFaceAnalyzer';
 import ReduxLab from './components/tailwind-ui/ReduxLab';
 import AuthLab from './components/tailwind-ui/AuthLab';
+import NotesLab from './components/tailwind-ui/NotesLab';
+
 
 function App() {
   // =====================================================================
@@ -231,11 +233,23 @@ function App() {
                 />
               </div>
 
-
-              {/* ⚡ NEW: Card 10: AI Engine */}
+              {/* ⚡ NEW: Card 10: Notes Engine ⚡ */}
               <div className="col-md-3">
                 <PathCard
-                  title="10. AI Engine"
+                  title="10. Notes Engine"
+                  icon="📝"
+                  iconColor="#3B82F6"
+                  desc="CRUD Operations using Redux global state."
+                  framework="REACT REDUX"
+                  link="#notes-lab"
+                />
+              </div>
+
+
+              {/* ⚡ NEW: Card 11: AI Engine */}
+              <div className="col-md-3">
+                <PathCard
+                  title="11. AI Engine"
                   icon="🧠"
                   iconColor="#27C8F5"
                   desc="Real-Time Emotion Analyzer using TensorFlow.js & WebRTC."
@@ -297,8 +311,14 @@ function App() {
               <AuthLab />
             </div>
 
+            {/* ⚡ 10. REDUX NOTES LAB ⚡ */}
+            <div id="notes-lab" className="mt-5 pt-5 border-t border-slate-800 flex flex-col items-center">
+              <NotesLab />
+            </div>
 
-            {/* ⚡ 10. THE NEW AI MEGA CARD (CYAN THEME & STANDARD BUTTON) ⚡ */}
+
+
+            {/* ⚡ 11. THE NEW AI MEGA CARD (CYAN THEME & STANDARD BUTTON) ⚡ */}
             <div id="ai-lab" className="mt-5 pt-5 border-t border-slate-800 flex flex-col items-center mb-10">
               <div
                 onClick={() => navigate('/ai-analyzer')}
