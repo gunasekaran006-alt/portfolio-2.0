@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addNote, deleteNote } from '../../redux/notesSlice';
+// Added updateNote here
+import { addNote, deleteNote, updateNote } from '../../redux/notesSlice';
 
 const NotesLab = () => {
     // Global State
@@ -10,18 +11,43 @@ const NotesLab = () => {
     // Local State for Form
     const [form, setForm] = useState({ title: "", description: "", category: "" });
 
+    // State to track if we are updating an existing note
+    const [editId, setEditId] = useState(null);
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if (!form.title || !form.description) return alert("Title and Description are required!");
 
-        const newNote = {
-            ...form,
-            id: Date.now(),
-            category: form.category || 'General' // Default category if empty
-        };
+        if (editId) {
+            // Update existing note
+            dispatch(updateNote({
+                ...form,
+                id: editId,
+                category: form.category || 'General'
+            }));
+            setEditId(null); // Clear edit mode
+        } else {
+            // Add new note
+            const newNote = {
+                ...form,
+                id: Date.now(),
+                category: form.category || 'General' // Default category if empty
+            };
+            dispatch(addNote(newNote));
+        }
 
-        dispatch(addNote(newNote));
-        setForm({ title: "", description: "", category: "" }); // Reset form
+        // Reset form
+        setForm({ title: "", description: "", category: "" });
+    };
+
+    // Function to populate form when edit is clicked
+    const handleEdit = (data) => {
+        setEditId(data.id);
+        setForm({
+            title: data.title,
+            description: data.description,
+            category: data.category
+        });
     };
 
     return (
@@ -46,7 +72,9 @@ const NotesLab = () => {
                     <div className="bg-[#161b22] border border-slate-800 rounded-2xl p-6 relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-32 h-32 bg-[#27C8F5] rounded-full filter blur-[80px] opacity-10"></div>
 
-                        <h5 className="text-[#27C8F5] text-sm font-black uppercase tracking-widest mb-6">Create New Record</h5>
+                        <h5 className="text-[#27C8F5] text-sm font-black uppercase tracking-widest mb-6">
+                            {editId ? "Update Record" : "Create New Record"}
+                        </h5>
 
                         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                             <input
@@ -73,12 +101,25 @@ const NotesLab = () => {
                                 className="w-full bg-[#0d1117] border border-slate-700 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#27C8F5] transition-colors"
                             />
 
-                            <button
-                                type="submit"
-                                className="w-full mt-2 bg-[#27C8F5]/10 border border-[#27C8F5]/30 text-[#27C8F5] font-black py-3 !rounded-full hover:!bg-[#27C8F5] hover:!text-black transition-all outline-none uppercase tracking-widest text-xs"
-                            >
-                                + Insert Record
-                            </button>
+                            <div className="flex gap-2 mt-2">
+                                <button
+                                    type="submit"
+                                    className="flex-1 bg-[#27C8F5]/10 border border-[#27C8F5]/30 text-[#27C8F5] font-black py-3 !rounded-full hover:!bg-[#27C8F5] hover:!text-black transition-all outline-none uppercase tracking-widest text-xs"
+                                >
+                                    {editId ? "Update" : "+ Insert"}
+                                </button>
+
+                                {/* Cancel button only shows during edit mode */}
+                                {editId && (
+                                    <button
+                                        type="button"
+                                        onClick={() => { setEditId(null); setForm({ title: "", description: "", category: "" }); }}
+                                        className="flex-1 bg-slate-800 border border-slate-700 text-slate-300 font-black py-3 !rounded-full hover:!bg-slate-700 transition-all outline-none uppercase tracking-widest text-xs"
+                                    >
+                                        Cancel
+                                    </button>
+                                )}
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -103,7 +144,7 @@ const NotesLab = () => {
                                                 {data.category}
                                             </span>
                                         </div>
-                                        <p className="text-slate-400 text-sm mb-6 leading-relaxed">
+                                        <p className="text-slate-400 text-sm mb-6 leading-relaxed whitespace-pre-wrap">
                                             {data.description}
                                         </p>
                                     </div>
@@ -112,12 +153,24 @@ const NotesLab = () => {
                                         <span className="text-slate-500 text-[10px] font-bold uppercase tracking-wider">
                                             ID: {data.id.toString().slice(-6)}
                                         </span>
-                                        <button
-                                            onClick={() => dispatch(deleteNote(data.id))}
-                                            className="text-[10px] font-black uppercase tracking-widest bg-red-500/10 border border-red-500/30 text-red-500 px-4 py-1.5 !rounded-full hover:!bg-red-500 hover:!text-white transition-colors outline-none"
-                                        >
-                                            Delete
-                                        </button>
+
+                                        <div className="flex gap-2">
+                                            {/* Edit Button */}
+                                            <button
+                                                onClick={() => handleEdit(data)}
+                                                className="text-[10px] font-black uppercase tracking-widest bg-[#27C8F5]/10 border border-[#27C8F5]/30 text-[#27C8F5] px-4 py-1.5 !rounded-full hover:!bg-[#27C8F5] hover:!text-black transition-colors outline-none"
+                                            >
+                                                Edit
+                                            </button>
+
+                                            {/* Delete Button */}
+                                            <button
+                                                onClick={() => dispatch(deleteNote(data.id))}
+                                                className="text-[10px] font-black uppercase tracking-widest bg-red-500/10 border border-red-500/30 text-red-500 px-4 py-1.5 !rounded-full hover:!bg-red-500 hover:!text-white transition-colors outline-none"
+                                            >
+                                                Delete
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             ))}
