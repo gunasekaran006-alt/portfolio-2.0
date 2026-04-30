@@ -42,7 +42,7 @@ function TeamDirectory() {
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-black mb-2 uppercase tracking-[5px] sm:tracking-[8px]" style={{ color: standardCyan }}>
           CRUD Data Engine
         </h2>
-        <p className="text-gray-600 text-[11px] tracking-[0.9em] uppercase font-bold">BENTO GRID ARCHITECTURE & REST API</p>
+        <p className="text-gray-600 text-[11px] tracking-[0.9em] uppercase font-bold flex-wrap">BENTO GRID ARCHITECTURE & REST API</p>
       </div>
 
       <div className='grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch'>
@@ -57,7 +57,8 @@ function TeamDirectory() {
               <option value="Present">🟢 Present </option>
               <option value="Absent">🔴 Absent </option>
             </select>
-            <button type="submit" className="btn-master-hub mt-4">
+            
+            <button type="submit" className="w-full mt-4 bg-[#27C8F5]/10 border-2 border-[#27C8F5] text-[#27C8F5] font-black py-4 !rounded-full hover:bg-[#27C8F5] hover:text-black transition-all outline-none uppercase tracking-widest text-xs shadow-[0_0_15px_rgba(39,200,245,0.1)]">
               {editId ? "UPDATE DATA ➔" : "EXECUTE ENTRY ➔"}
             </button>
           </form>
@@ -70,10 +71,11 @@ function TeamDirectory() {
 
               <div className="flex flex-col gap-4 text-center md:text-left w-full md:w-auto">
                 <div>
-                  {/* ⚡ Name and Status: flex-wrap added so they don't break on 320px */}
                   <div className="flex flex-wrap justify-center md:justify-start items-center gap-3">
-                    <h4 className='text-white font-black text-3xl uppercase tracking-tighter group-hover:text-[#27C8F5] transition-colors truncate'>{data.username}</h4>
-                    <span className={`text-[10px] px-4 py-1 rounded-full font-black border ${data.status === "Present" ? "text-green-400 border-green-500/20 bg-green-500/5" : "text-red-400 border-red-500/20 bg-red-500/5"}`}>
+                    <h4 className='text-white font-black text-3xl uppercase tracking-tighter group-hover:text-[#27C8F5] transition-colors truncate max-w-[200px] sm:max-w-full'>{data.username}</h4>
+                    
+                    {/* ⚡ Status Badge - Text color explicitly updated to text-emerald-500 and text-red-500 for deep, solid colors */}
+                    <span className={`text-[10px] px-3 py-1 rounded-full font-black border-2 uppercase tracking-widest ${data.status === "Present" ? "text-emerald-500 border-emerald-500 bg-emerald-500/10" : "text-red-500 border-red-500 bg-red-500/10"}`}>
                       {data.status}
                     </span>
                   </div>
@@ -81,19 +83,16 @@ function TeamDirectory() {
                 </div>
               </div>
 
-              {/* ⚡ ACTION BUTTONS: flex-1 for mobile, fixed width for desktop */}
-              <div className='flex w-full md:w-auto gap-3 mt-6 md:mt-0 justify-between md:ml-auto md:pr-2'>
+              <div className='flex flex-wrap w-full md:w-auto gap-3 mt-6 md:mt-0 justify-between md:ml-auto md:pr-2'>
                 <button
                   onClick={() => { setForm(data); setEditId(data.id) }}
-                  className='flex-1 md:flex-none md:w-[120px] py-2 md:py-3 text-[#27C8F5] font-black text-[11px] uppercase tracking-widest border-2 border-slate-800 hover:bg-[#27C8F5] hover:text-black transition-all duration-300 shadow-sm'
-                  style={{ borderRadius: '20px' }} 
+                  className='flex-1 md:flex-none md:w-[120px] py-2 md:py-3 bg-[#27C8F5]/10 text-[#27C8F5] font-black text-[11px] uppercase tracking-widest border-2 border-[#27C8F5] hover:bg-[#27C8F5] hover:text-black transition-all duration-300 shadow-sm !rounded-full outline-none'
                 >
                   Edit
                 </button>
                 <button
                   onClick={async () => { await axios.delete(`${API}/${data.id}`); getTeam(); }}
-                  className='flex-1 md:flex-none md:w-[120px] py-2 md:py-3 text-red-500 font-black text-[11px] uppercase tracking-widest border-2 border-red-900/20 hover:bg-red-500 hover:text-white transition-all duration-300 shadow-sm'
-                  style={{ borderRadius: '20px' }} 
+                  className='flex-1 md:flex-none md:w-[120px] py-2 md:py-3 bg-red-500/10 text-red-500 font-black text-[11px] uppercase tracking-widest border-2 border-red-500 hover:bg-red-500 hover:text-white transition-all duration-300 shadow-sm !rounded-full outline-none'
                 >
                   Delete
                 </button>

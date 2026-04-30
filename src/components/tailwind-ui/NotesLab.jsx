@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-// Added updateNote here
 import { addNote, deleteNote, updateNote } from '../../redux/notesSlice';
 
 const NotesLab = () => {
@@ -58,7 +57,9 @@ const NotesLab = () => {
                 <div className="text-[#27C8F5] text-lg md:text-xl font-black uppercase tracking-widest flex items-center gap-3">
                     <span className="text-2xl">📝</span> Redux Notes Database
                 </div>
-                <span className="bg-[#27C8F5]/10 border border-[#27C8F5]/30 text-[#27C8F5] text-[10px] px-3 py-1 font-black uppercase tracking-widest rounded-full flex items-center gap-2 shadow-[0_0_15px_rgba(39,200,245,0.1)] whitespace-nowrap">
+                
+                {/* Total Records Badge - Updated to border-2, Solid Cyan, and Glow Effect */}
+                <span className="border-2 bg-[#27C8F5]/10 border-[#27C8F5] text-[#27C8F5] shadow-[0_0_15px_rgba(39,200,245,0.15)] text-[10px] px-3 py-1 font-black uppercase tracking-widest rounded-full flex items-center gap-2 flex-wrap sm:whitespace-nowrap">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#27C8F5] animate-pulse"></span>
                     Total Records: {notes.length}
                 </span>
@@ -101,10 +102,11 @@ const NotesLab = () => {
                                 className="w-full bg-[#0d1117] border border-slate-700 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#27C8F5] transition-colors"
                             />
 
-                            <div className="flex gap-2 mt-2">
+                            {/* Action Buttons */}
+                            <div className="flex flex-wrap gap-2 mt-2">
                                 <button
                                     type="submit"
-                                    className="flex-1 bg-[#27C8F5]/10 border border-[#27C8F5]/30 text-[#27C8F5] font-black py-3 !rounded-full hover:!bg-[#27C8F5] hover:!text-black transition-all outline-none uppercase tracking-widest text-xs"
+                                    className="flex-1 min-w-[100px] bg-[#27C8F5]/10 border-2 border-[#27C8F5] text-[#27C8F5] font-black py-3 !rounded-full hover:!bg-[#27C8F5] hover:!text-black transition-all outline-none uppercase tracking-widest text-xs"
                                 >
                                     {editId ? "Update" : "+ Insert"}
                                 </button>
@@ -114,7 +116,7 @@ const NotesLab = () => {
                                     <button
                                         type="button"
                                         onClick={() => { setEditId(null); setForm({ title: "", description: "", category: "" }); }}
-                                        className="flex-1 bg-slate-800 border border-slate-700 text-slate-300 font-black py-3 !rounded-full hover:!bg-slate-700 transition-all outline-none uppercase tracking-widest text-xs"
+                                        className="flex-1 min-w-[100px] bg-slate-800 border-2 border-slate-500 text-slate-300 font-black py-3 !rounded-full hover:!bg-slate-700 transition-all outline-none uppercase tracking-widest text-xs"
                                     >
                                         Cancel
                                     </button>
@@ -149,16 +151,17 @@ const NotesLab = () => {
                                         </p>
                                     </div>
 
-                                    <div className="flex items-center justify-between border-t border-slate-800 pt-4 mt-auto">
+                                    {/* Mobile Responsive Footer */}
+                                    <div className="flex flex-wrap items-center justify-between border-t border-slate-800 pt-4 mt-auto gap-y-3 gap-x-2">
                                         <span className="text-slate-500 text-[10px] font-bold uppercase tracking-wider">
                                             ID: {data.id.toString().slice(-6)}
                                         </span>
 
-                                        <div className="flex gap-2">
+                                        <div className="flex flex-wrap gap-2">
                                             {/* Edit Button */}
                                             <button
                                                 onClick={() => handleEdit(data)}
-                                                className="text-[10px] font-black uppercase tracking-widest bg-[#27C8F5]/10 border border-[#27C8F5]/30 text-[#27C8F5] px-4 py-1.5 !rounded-full hover:!bg-[#27C8F5] hover:!text-black transition-colors outline-none"
+                                                className="text-[10px] font-black uppercase tracking-widest bg-[#27C8F5]/10 border-2 border-[#27C8F5] text-[#27C8F5] px-3 sm:px-4 py-1.5 !rounded-full hover:!bg-[#27C8F5] hover:!text-black transition-colors outline-none"
                                             >
                                                 Edit
                                             </button>
@@ -166,7 +169,7 @@ const NotesLab = () => {
                                             {/* Delete Button */}
                                             <button
                                                 onClick={() => dispatch(deleteNote(data.id))}
-                                                className="text-[10px] font-black uppercase tracking-widest bg-red-500/10 border border-red-500/30 text-red-500 px-4 py-1.5 !rounded-full hover:!bg-red-500 hover:!text-white transition-colors outline-none"
+                                                className="text-[10px] font-black uppercase tracking-widest bg-red-500/10 border-2 border-red-500 text-red-500 px-3 sm:px-4 py-1.5 !rounded-full hover:!bg-red-500 hover:!text-white transition-colors outline-none"
                                             >
                                                 Delete
                                             </button>

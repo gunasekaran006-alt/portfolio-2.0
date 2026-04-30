@@ -13,13 +13,13 @@ const ReduxLab = () => {
       {/* Header Row */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b border-slate-800 pb-4 gap-4">
         
-        {/* ⚡ FIXED: Increased text size to text-lg md:text-xl to make it look like a Main Heading */}
+        {/* Main Heading */}
         <div className="text-[#27C8F5] text-lg md:text-xl font-black uppercase tracking-widest flex items-center gap-2">
           <span className="text-2xl">🏦</span> Global State Architecture (Redux)
         </div>
         
-        {/* Premium Live Connected Badge */}
-        <span className="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[10px] px-3 py-1 font-black uppercase tracking-widest rounded-full flex items-center gap-2 shadow-[0_0_15px_rgba(16,185,129,0.1)] whitespace-nowrap">
+        {/* Premium Live Connected Badge - Updated to border-2 and Solid Emerald */}
+        <span className="border-2 bg-emerald-500/10 border-emerald-500 text-emerald-400 text-[10px] px-3 py-1 font-black uppercase tracking-widest rounded-full flex items-center gap-2 shadow-[0_0_15px_rgba(16,185,129,0.15)] flex-wrap sm:whitespace-nowrap">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
           Store Connected
         </span>
@@ -39,17 +39,21 @@ const ReduxLab = () => {
              <div className="text-6xl font-black text-white">{count}</div>
           </div>
 
-          <div className="flex gap-4 mt-auto">
+          {/* Buttons Container - Added flex-wrap and adjusted gap for 320px screens */}
+          <div className="flex flex-wrap gap-3 mt-auto">
+            {/* Increase Button - Updated to border-2 and Solid Cyan */}
             <button 
               onClick={() => dispatch(increment())}
-              className="flex-1 bg-[#27C8F5]/10 border border-[#27C8F5]/30 text-[#27C8F5] font-black py-3 !rounded-full hover:bg-[#27C8F5] hover:text-black transition-colors text-xs tracking-widest uppercase outline-none"
+              className="flex-1 min-w-[120px] bg-[#27C8F5]/10 border-2 border-[#27C8F5] text-[#27C8F5] font-black py-3 !rounded-full hover:bg-[#27C8F5] hover:text-black transition-colors text-xs tracking-widest uppercase outline-none"
             >
               + INCREASE
             </button>
+            
+            {/* Decrease Button - Updated to border-2 and Solid Red / Slate when disabled */}
             <button 
               onClick={() => dispatch(decrement())}
               disabled={count === 0}
-              className={`flex-1 font-black py-3 !rounded-full border transition-colors text-xs tracking-widest uppercase outline-none ${count === 0 ? 'bg-slate-800 border-slate-700 text-slate-500 cursor-not-allowed' : 'bg-red-500/10 border-red-500/30 text-red-500 hover:bg-red-500 hover:text-white'}`}
+              className={`flex-1 min-w-[120px] font-black py-3 !rounded-full border-2 transition-colors text-xs tracking-widest uppercase outline-none ${count === 0 ? 'bg-slate-800 border-slate-600 text-slate-500 cursor-not-allowed' : 'bg-red-500/10 border-red-500 text-red-500 hover:bg-red-500 hover:text-white'}`}
             >
               - DECREASE
             </button>
@@ -66,9 +70,10 @@ const ReduxLab = () => {
             <div className="text-3xl font-black text-[#27C8F5] mb-2">Sync: {count}</div>
           </div>
 
+          {/* Reset Button - Updated to border-2 and Solid Cyan */}
           <button 
             onClick={() => dispatch(reset())}
-            className="w-full mt-auto bg-[#27C8F5]/10 border border-[#27C8F5]/30 text-[#27C8F5] font-black py-3 !rounded-full hover:bg-[#27C8F5] hover:text-black focus:bg-[#27C8F5] focus:text-black active:bg-[#27C8F5] active:text-black transition-all duration-300 uppercase tracking-widest text-xs outline-none"
+            className="w-full mt-auto bg-[#27C8F5]/10 border-2 border-[#27C8F5] text-[#27C8F5] font-black py-3 !rounded-full hover:bg-[#27C8F5] hover:text-black focus:bg-[#27C8F5] focus:text-black active:bg-[#27C8F5] active:text-black transition-all duration-300 uppercase tracking-widest text-xs outline-none"
           >
             Reset Global State
           </button>

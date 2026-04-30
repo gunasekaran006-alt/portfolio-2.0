@@ -45,8 +45,10 @@ const AuthLab = () => {
         <div className="text-[#27C8F5] text-lg md:text-xl font-black uppercase tracking-widest flex items-center gap-2">
           <span className="text-2xl">🔐</span> Authentication Engine (Redux)
         </div>
-        <span className={`border text-[10px] px-3 py-1 font-black uppercase tracking-widest rounded-full flex items-center gap-2 whitespace-nowrap ${user ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.1)]' : 'bg-orange-500/10 border-orange-500/30 text-orange-400'}`}>
-          <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${user ? 'bg-emerald-400' : 'bg-orange-400'}`}></span>
+        
+        {/* Status Badge - Updated with Standard Cyan Color for Awaiting Login */}
+        <span className={`border-2 text-[10px] px-3 py-1 font-black uppercase tracking-widest rounded-full flex items-center gap-2 flex-wrap sm:whitespace-nowrap ${user ? 'bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.1)]' : 'bg-[#27C8F5]/10 border-[#27C8F5] text-[#27C8F5] shadow-[0_0_15px_rgba(39,200,245,0.15)]'}`}>
+          <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${user ? 'bg-emerald-400' : 'bg-[#27C8F5]'}`}></span>
           {user ? 'User Authenticated' : 'Awaiting Login'}
         </span>
       </div>
@@ -60,12 +62,13 @@ const AuthLab = () => {
             <div className="w-20 h-20 bg-[#27C8F5]/10 border border-[#27C8F5]/30 rounded-full flex items-center justify-center text-4xl mx-auto mb-6">
               👤
             </div>
-            <h3 className="text-white text-2xl font-black mb-2">Welcome, {user.username}!</h3>
-            <p className="text-slate-400 text-sm mb-8">{user.email}</p>
+            <h3 className="text-white text-2xl font-black mb-2 flex-wrap overflow-hidden text-ellipsis">Welcome, {user.username}!</h3>
+            <p className="text-slate-400 text-sm mb-8 flex-wrap overflow-hidden text-ellipsis">{user.email}</p>
             
+            {/* Logout Button */}
             <button 
               onClick={handleLogout}
-              className="w-full bg-red-500/10 border border-red-500/30 text-red-500 font-black py-3 !rounded-full hover:!bg-red-500 hover:!text-white transition-all outline-none uppercase tracking-widest text-xs"
+              className="w-full bg-red-500/10 border-2 border-red-500 text-red-500 font-black py-3 !rounded-full hover:!bg-red-500 hover:!text-white transition-all outline-none uppercase tracking-widest text-xs"
             >
               Secure Logout
             </button>
@@ -81,7 +84,11 @@ const AuthLab = () => {
             </h3>
 
             {/* Error Message */}
-            {error && !user && <p className="bg-red-500/10 border border-red-500/30 text-red-500 text-xs text-center p-2 rounded-lg mb-4 font-bold">{error}</p>}
+            {error && !user && (
+              <p className="bg-red-500/10 border-2 border-red-500 text-red-500 text-xs text-center p-2 rounded-lg mb-4 font-bold">
+                {error}
+              </p>
+            )}
 
             <form onSubmit={view === 'login' ? handleLogin : handleRegister} className="flex flex-col gap-4">
               
@@ -111,9 +118,10 @@ const AuthLab = () => {
                 className="w-full bg-[#0d1117] border border-slate-700 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#27C8F5] transition-colors"
               />
 
+              {/* Submit Button */}
               <button 
                 type="submit"
-                className="w-full mt-4 bg-[#27C8F5]/10 border border-[#27C8F5]/30 text-[#27C8F5] font-black py-3 !rounded-full hover:!bg-[#27C8F5] hover:!text-black transition-all outline-none uppercase tracking-widest text-xs"
+                className="w-full mt-4 bg-[#27C8F5]/10 border-2 border-[#27C8F5] text-[#27C8F5] font-black py-3 !rounded-full hover:!bg-[#27C8F5] hover:!text-black transition-all outline-none uppercase tracking-widest text-xs"
               >
                 {view === 'login' ? 'Login ➔' : 'Create Account ➔'}
               </button>
