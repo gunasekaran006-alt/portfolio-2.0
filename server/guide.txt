@@ -6,3 +6,11 @@ npm i express
 main.js - > "scripts": {
     "dev": "node --watch main.js"}
      
+********very very important for security issues ( os.js) :( systemLab.js) for deploy
+     போர்ட்ஃபோலியோவில் செய்ய வேண்டியது:
+நீங்கள் இந்த போர்ட்ஃபோலியோவை Render, Vercel அல்லது Railway-ல் ஹோஸ்ட் செய்யும்போது, அந்தத் தளத்தின் Settings -> Environment Variables பகுதிக்குச் சென்று:
+
+NODE_ENV = production 
+( Key: NODE_ENV   Value: production )
+
+என்று செட் செய்துவிடுங்கள். அவ்வளவுதான்! உங்கள் போர்ட்ஃபோலியோ தானாகவே பாதுகாப்பான முறையில் மாறிவிடும்.
