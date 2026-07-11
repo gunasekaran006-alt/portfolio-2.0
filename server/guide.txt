@@ -1,0 +1,8 @@
+server folder - >
+inside ->
+cd server
+npm init -y 
+npm i express
+main.js - > "scripts": {
+    "dev": "node --watch main.js"}
+     
