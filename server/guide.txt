@@ -14,3 +14,8 @@ NODE_ENV = production
 ( Key: NODE_ENV   Value: production )
 
 என்று செட் செய்துவிடுங்கள். அவ்வளவுதான்! உங்கள் போர்ட்ஃபோலியோ தானாகவே பாதுகாப்பான முறையில் மாறிவிடும்.
+
+----
+
+npm i cors
+உங்கள் main.js-ல் const cors = require('cors'); மற்றும் app.use(cors()); ஆகியவற்றைச் சேர்க்கவும்.

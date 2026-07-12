@@ -1,7 +1,9 @@
 const express = require("express");
+const cors = require('cors');
 const app = express();
 const systemLab = require("./SystemLab");
 
+app.use(cors());
 let port = 8080;
 
 // OS Details Route
@@ -29,6 +31,8 @@ app.get("/test-events", (req, res) => {
 
     res.json({ message: "Events logic executed. Check your server terminal." });
 });
+
+
 
 app.listen(port, () => {
     console.log("Server running on", port);
