@@ -129,3 +129,35 @@ This module transitions from static routing to a dynamic **Model-View-Controller
 
 
 --------------------------------------------
+
+
+# Day 66: Employee Management CRUD API
+
+## Overview
+This module implements a complete **Create, Read, Update, and Delete (CRUD)** system for managing employee records. It follows a clean architecture by separating business logic (Controllers), data schema definitions (Models), and request routing (Routes).
+
+## Core Engineering Principles
+* **RESTful Semantics:** Proper utilization of HTTP verbs (`GET`, `POST`, `PUT`, `DELETE`) to perform resource-based operations.
+* **State Management:** Implementation of in-memory data arrays to simulate robust backend state transitions.
+* **Atomic Operations:** Ensuring predictable API behavior for record manipulation, including index-based deletion and object-based updates.
+* **Decoupled Architecture:** Full isolation of concerns, allowing for future seamless migration to persistent databases like MongoDB.
+
+## Technical Highlights
+* **ID Generation:** Utilization of `Date.now()` for unique, timestamp-based record identification.
+* **Middleware Integration:** Effective use of `express.json()` for structured request body parsing.
+* **Route Modularity:** Organized endpoint management, enabling easy scaling and maintenance of the employee directory.
+
+## API Endpoints
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/employees` | Retrieves the full list of employees. |
+| `POST` | `/employees` | Registers a new employee profile with ID generation. |
+| `PUT` | `/employees/:id` | Executes partial updates to existing employee data. |
+| `DELETE` | `/employees/:id` | Removes a specific employee from the registry. |
+
+## Prerequisites
+* **Runtime:** Node.js (v18+)
+* **Framework:** Express.js (v5+)
+* **Tooling:** Nodemon for development-phase hot-reloading.
+
+---------------------------------------

@@ -3,12 +3,19 @@ const cors = require('cors');
 const app = express();
 const systemLab = require("./SystemLab");
 const productRoutes = require("./routes/products.routes");
+const employeeRoutes = require("./routes/employee.routes");
 
-
+// Middleware
 app.use(express.json()); // JSON parsing is mandatory!
 app.use(cors());
+
+// Routes
+app.use("/api/products", productRoutes);
+app.use("/employees", employeeRoutes);
+
 let port = 8080;
 
+// System Routes
 // OS Details Route
 app.get("/os-status", (req, res) =>
     // const details = systemLab.getOSDetails();
@@ -59,7 +66,6 @@ app.get("/reset-payment", (req, res) => {
 
 
 
-app.use("/api/products", productRoutes);
 
 app.listen(port, () => {
     console.log("Server running on", port);
