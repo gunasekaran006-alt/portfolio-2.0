@@ -7,31 +7,52 @@ app.use(cors());
 let port = 8080;
 
 // OS Details Route
-app.get("/os-status", (req, res) => {
-    const details = systemLab.getOSDetails();
-    res.json(details);
-});
+app.get("/os-status", (req, res) =>
+    // const details = systemLab.getOSDetails();
+    // res.json(details);
+    res.json(systemLab.getOSDetails()));
 
 app.get("/create-file", (req, res) => {
     systemLab.createEntriFile();
-    res.json({ message: "File 'entri.txt' has been created. Check your server folder." });
+    res.json({ message: "File 'entri.txt' has been created!" });
 });
 
-app.get("/test-events", (req, res) => {
-    // Chat Scenario
+
+// Chat Route
+app.get("/send-chat", (req, res) => {
     systemLab.chatEvents.emit('newMessage', 'Narasimhan', 'Kindly join the session');
     systemLab.chatEvents.emit('newMessage', 'Guna', 'Joining sir');
-
-    // Payment Scenario
-    console.log("User clicked the pay button");
-    systemLab.paymentEvent.emit('processPayment', 5000);
-
-    console.log("User clicked the pay button again");
-    systemLab.paymentEvent.emit('processPayment', 5000); // இது இக்னோர் செய்யப்படும்
-
-    res.json({ message: "Events logic executed. Check your server terminal." });
+    res.json({ logs: systemLab.chatLogs });
 });
 
+// Payment Route
+app.get("/process-payment", (req, res) => {
+    if (systemLab.paymentStatus.processed) {
+        res.json({ message: "Already Paid!" });
+    } else {
+        systemLab.paymentEvent.emit('processPayment', 5000);
+        res.json({ message: systemLab.paymentStatus.message });
+    }
+});
+
+
+
+// console.log("User clicked the pay button");
+// systemLab.paymentEvent.emit('processPayment', 5000);
+
+// console.log("User clicked the pay button again");
+// systemLab.paymentEvent.emit('processPayment', 5000); 
+
+// res.json({ message: "Events logic executed. Check your server terminal." });
+
+// res.json({ chatHistory: systemLab.chatLogs, paymentInfo: systemLab.paymentStatus });
+
+
+app.get("/reset-payment", (req, res) => {
+    systemLab.paymentStatus.processed = false;
+    systemLab.paymentStatus.message = "Click to Pay";
+    res.json({ message: "Reset complete! You can pay again." });
+});
 
 
 app.listen(port, () => {

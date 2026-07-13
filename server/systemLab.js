@@ -3,15 +3,24 @@ const fs = require("fs");
 const os = require("os");
 
 // 1) Events Module topics majorly asked in product 
+
+const chatLogs = []; // To save messages
+const paymentStatus = { processed: false, message: "Click to Pay" };
+
+// Chat Logs
 const chatEvents = new EventEmitter();
 chatEvents.on('newMessage', (user, message) => {
-    console.log(`New Message from ${user}: ${message}`);
+    chatLogs.push({ user, message, time: new Date().toLocaleTimeString() });
+    // console.log(`New Message from ${user}: ${message}`);
 });
 
-// Scenario - Payment (Razorpay, BHIM, PayPal)
+// Payment Logic (Razorpay, BHIM, PayPal)
 const paymentEvent = new EventEmitter();
+// let paymentStatus = { processed: false, message: "Click to Pay" };
 paymentEvent.once('processPayment', (amount) => {
-    console.log(`Payment of ${amount} processed successfully`);
+    paymentStatus.processed = true;
+    paymentStatus.message = `Payment of ${amount} processed successfully!`;
+    // console.log(`Payment of ${amount} processed successfully`);
 });
 
 // 2) FS Module (File System Logic)
@@ -59,4 +68,4 @@ const getOSDetails = () => {
     return isProduction ? dummyData : originalData;
 };
 
-module.exports = { chatEvents, paymentEvent, createEntriFile , getOSDetails };
+module.exports = { chatEvents, paymentEvent, createEntriFile, getOSDetails, chatLogs, paymentStatus };
