@@ -4,6 +4,8 @@ const app = express();
 const systemLab = require("./SystemLab");
 const productRoutes = require("./routes/products.routes");
 
+
+app.use(express.json()); // JSON parsing is mandatory!
 app.use(cors());
 let port = 8080;
 

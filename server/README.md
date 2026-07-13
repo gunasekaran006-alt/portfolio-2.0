@@ -58,6 +58,13 @@ The OS Network Interface is logged in a formatted JSON structure to the terminal
 
 ----------------------------------------------
 
+நிச்சயமாக, உங்கள் **Day 64 - MVC Express Architecture** பயிற்சிக்கான தொழில்முறை (Professional) README கோப்பு இதோ. இதை உங்கள் `server` ஃபோல்டரில் `README.md` என்ற பெயரில் சேமிக்கவும்.
+
+---
+
+### README.md
+
+```markdown
 # MVC Express API Architecture - Day 64
 
 ## Overview
@@ -78,7 +85,47 @@ server/
 │   └── products.routes.js      # Defines API endpoints and connects to controllers
 └── main.js                     # Application entry point & middleware initialization
 
+```
 
------------------------------------------------
+## API Endpoints
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| `GET` | `/api/products/all-products` | Fetches the complete product catalog. |
+| `POST` | `/api/products/create` | Initializes a new product entry in the system. |
+| `PUT` | `/api/products/edit` | Updates existing product information. |
+| `DELETE` | `/api/products/delete` | Removes a specific product asset from the system. |
+
+## Prerequisites
+
+* **Runtime:** Node.js (v18+)
+* **Framework:** Express.js (v5+)
+* **Tooling:** Nodemon for hot-reloading during development.
 
 
+----------------------------------------------
+
+# Day 65: Express API & In-Memory Data Persistence
+
+## Overview
+This module transitions from static routing to a dynamic **Model-View-Controller (MVC)** framework, incorporating in-memory data management for real-time API simulation.
+
+## Engineering Principles
+* **Stateful API Design:** Implementing `in-memory` storage to simulate database interactions before integrating production-grade persistence layers.
+* **REST Payload Handling:** Utilizing `express.json()` middleware for robust JSON serialization and deserialization of incoming client requests.
+* **Controller Layer Abstraction:** Decoupling business logic from routes to ensure high testability and maintainability.
+* **Standardized JSON Schema:** Enforcing consistent object structures for data communication between the client and server.
+
+## API Endpoints
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/api/products/products` | Retrieves all product records currently stored in the memory layer. |
+| `POST` | `/api/products/create` | Dynamically initializes a product record with unique ID generation. |
+
+## Technical Implementation
+* **Model Layer:** Manages the temporary array-based database.
+* **Controller Layer:** Contains CRUD logic, including input validation and ID generation.
+* **Route Layer:** Exposes API endpoints and connects HTTP methods to controller logic.
+
+
+--------------------------------------------
