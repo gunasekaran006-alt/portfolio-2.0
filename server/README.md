@@ -58,3 +58,27 @@ The OS Network Interface is logged in a formatted JSON structure to the terminal
 
 ----------------------------------------------
 
+# MVC Express API Architecture - Day 64
+
+## Overview
+This module demonstrates the transition from a monolithic script structure to a scalable **Model-View-Controller (MVC)** architectural pattern. The focus is on decoupling business logic from routing, ensuring the application remains maintainable and extensible.
+
+## Engineering Principles Implemented
+* **Separation of Concerns (SoC):** Business logic is abstracted into the `controller/` layer, while request handling is isolated within the `routes/` layer.
+* **RESTful API Standardization:** Enforced standardized URI structures (e.g., `/api/products/...`) to ensure predictable endpoint behavior.
+* **Modular Codebase:** Leveraged Express Router to create plug-and-play route modules, preventing clutter in the main application entry point.
+* **Scalable Data Handling:** Prepared for integration with database models, maintaining a clean architecture for future ORM/ODM implementation.
+
+## Project Structure
+```text
+server/
+├── controller/
+│   └── products.controller.js  # Contains core API logic (CRUD functions)
+├── routes/
+│   └── products.routes.js      # Defines API endpoints and connects to controllers
+└── main.js                     # Application entry point & middleware initialization
+
+
+-----------------------------------------------
+
+

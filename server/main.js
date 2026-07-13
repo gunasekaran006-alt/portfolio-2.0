@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require('cors');
 const app = express();
 const systemLab = require("./SystemLab");
+const productRoutes = require("./routes/products.routes");
 
 app.use(cors());
 let port = 8080;
@@ -54,6 +55,9 @@ app.get("/reset-payment", (req, res) => {
     res.json({ message: "Reset complete! You can pay again." });
 });
 
+
+
+app.use("/api/products", productRoutes);
 
 app.listen(port, () => {
     console.log("Server running on", port);
