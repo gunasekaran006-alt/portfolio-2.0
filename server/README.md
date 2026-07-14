@@ -222,3 +222,19 @@ Implemented advanced MongoDB CRUD operations and established a **One-to-Many rel
 
 -----------------------------------------------
 
+# Day 72: Mongoose CRUD & Robust Error Handling
+
+## Overview
+Engineered a comprehensive RESTful API for task management with full CRUD (Create, Read, Update, Delete) functionality and professional error-handling mechanisms.
+
+## Technical Highlights
+* **Controller-Route Architecture:** Decoupled logic using Mongoose queries for cleaner, scalable code.
+* **Resilient API:** Implemented comprehensive `try-catch` blocks to ensure graceful error handling and API stability.
+* **Mongoose Integration:** Utilized powerful Mongoose methods (`findByIdAndUpdate`, `findByIdAndDelete`) for atomic database operations.
+
+## Engineering Principles
+* **State Management:** Transitioned from volatile local arrays to persistent MongoDB storage.
+* **Standardized Responses:** Maintained consistent JSON response structures for both success and server error scenarios.
+
+----------------------------------------------
+
