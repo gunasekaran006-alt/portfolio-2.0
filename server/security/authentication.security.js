@@ -1,5 +1,5 @@
 // server/security/authentication.security.js
-const userModel = require("../models/users.models");
+const userModel = require("../models/users.model");
 
 const registerApi = (req, res) => {
     const { username, email, password } = req.body;

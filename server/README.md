@@ -204,3 +204,21 @@ Transitioned from in-memory data persistence to a robust **MongoDB** database, u
 
 -----------------------------------------------
 
+# Day 71: MongoDB CRUD Operations & Relationship Modeling
+
+## Overview
+Implemented advanced MongoDB CRUD operations and established a **One-to-Many relationship** between `Users` and `Tasks` collections using `ObjectId` references.
+
+## Core Learning Outcomes
+* **Data Modeling:** Mastered defining relational schemas in Mongoose.
+* **CRUD Mastery:** Executed advanced query patterns including `insertMany`, `updateMany`, and `deleteMany`.
+* **Relationship Management:** Implemented foreign-key-like behavior using `ObjectId` to link user-specific tasks.
+
+## Concepts Covered
+* **Create:** `insertOne`, `insertMany`
+* **Read:** `find`, `findOne` with filtering.
+* **Update:** `updateOne` and `updateMany` using `$set` operators.
+* **Delete:** `deleteOne` and `deleteMany` for data maintenance.
+
+-----------------------------------------------
+
