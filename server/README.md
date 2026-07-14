@@ -160,4 +160,47 @@ This module implements a complete **Create, Read, Update, and Delete (CRUD)** sy
 * **Framework:** Express.js (v5+)
 * **Tooling:** Nodemon for development-phase hot-reloading.
 
----------------------------------------
+--------------------------------------
+
+# Day 67: Express Authentication System
+
+## Overview
+A secure authentication module implementing registration and multi-factor authentication (PIN verification).
+
+## Engineering Principles
+* **Environment Security:** Use of `dotenv` to manage sensitive server configurations, preventing hard-coding.
+* **Identity Verification:** Multi-stage authentication flow (Credential validation + PIN verification).
+* **Security Decoupling:** Authentication logic is isolated within the `security/` layer, ensuring modular and testable code.
+
+## API Endpoints
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `POST` | `/auth/register` | Creates a new user with a generated 4-digit login PIN. |
+| `POST` | `/auth/login` | Authenticates user credentials and validates the PIN via request headers. |
+
+
+---------------------------------
+
+# Day 70: MongoDB Database Integration & Mongoose Modeling
+
+## Overview
+Transitioned from in-memory data persistence to a robust **MongoDB** database, utilizing **Mongoose ODM** for schema definition and validation.
+
+## Technical Architecture
+* **ODM Layer:** Implemented Mongoose to enforce data structure via Schemas, ensuring type safety and validation (Enum status support).
+* **Asynchronous Connection:** Robust connection handling with error management and process termination monitoring.
+* **Schema-based Persistence:** Decoupled model architecture, preparing the application for scalable data retrieval and management.
+
+## Engineering Principles
+* **Data Integrity:** Used Enums in task schemas to restrict status transitions (`not-started`, `in-progress`, `completed`).
+* **Environment Security:** Secured database connection strings using `.env` configurations to prevent credential exposure.
+* **Scalable Modeling:** Mongoose models provide a foundation for complex queries and relations in future features.
+
+## Tech Stack
+* **Database:** MongoDB
+* **ODM:** Mongoose
+* **Environment:** dotenv
+
+
+-----------------------------------------------
+

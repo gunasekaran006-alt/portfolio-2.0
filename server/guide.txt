@@ -3,6 +3,8 @@ inside ->
 cd server
 npm init -y 
 npm i express
+npm install dotenv
+npm install mongoose
 main.js - > "scripts": {
     "dev": "node --watch main.js"}
      

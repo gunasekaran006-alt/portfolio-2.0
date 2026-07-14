@@ -4,14 +4,24 @@ const app = express();
 const systemLab = require("./SystemLab");
 const productRoutes = require("./routes/products.routes");
 const employeeRoutes = require("./routes/employee.routes");
+require("dotenv").config();
+const authRoutes = require("./routes/auth.routes");
+const dbConnection = require("./config/dbconnection.config");
+const taskRoutes = require("./routes/tasks.routes");
+
 
 // Middleware
 app.use(express.json()); // JSON parsing is mandatory!
 app.use(cors());
 
 // Routes
+dbConnection();
 app.use("/api/products", productRoutes);
 app.use("/employees", employeeRoutes);
+app.use("/auth", authRoutes);
+app.use("/api/tasks", taskRoutes);
+
+
 
 let port = 8080;
 
