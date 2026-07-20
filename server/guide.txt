@@ -21,3 +21,5 @@ NODE_ENV = production
 
 npm i cors
 உங்கள் main.js-ல் const cors = require('cors'); மற்றும் app.use(cors()); ஆகியவற்றைச் சேர்க்கவும்.
+
+-------------
