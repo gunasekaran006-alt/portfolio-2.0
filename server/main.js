@@ -8,7 +8,7 @@ require("dotenv").config();
 const authRoutes = require("./routes/auth.routes");
 const dbConnection = require("./config/dbconnection.config");
 const taskRoutes = require("./routes/tasks.routes");
-
+const userRoutes = require("./routes/user.route");
 
 // Middleware
 app.use(express.json()); // JSON parsing is mandatory!
@@ -20,7 +20,7 @@ app.use("/api/products", productRoutes);
 app.use("/employees", employeeRoutes);
 app.use("/auth", authRoutes);
 app.use("/api/tasks", taskRoutes);
-
+app.use("/user", userRoutes);
 
 
 let port = 8080;

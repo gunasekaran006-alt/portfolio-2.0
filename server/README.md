@@ -259,3 +259,66 @@ Successfully mastered advanced data analysis using MongoDB Aggregation framework
 * Bootstrap UI (Frontend Lab)
 
 --------------------------
+Day 74 - Revision
+--------------------------
+
+
+# Day 75 & 76: Advanced Security & JWT Authentication (Bcrypt + JSON Web Tokens)
+
+This milestone marks a major architectural upgrade in the backend infrastructure, transitioning from temporary in-memory mechanisms to an enterprise-grade secure authentication system backed by MongoDB and JWT.
+
+---
+
+### 🚀 Key Implementations & Features
+
+1. **Secure Identity Management (Password Hashing):**
+* Integrated **Bcrypt.js** to securely hash plain-text passwords using automated salt rounds (`bcrypt.hash(password, 10)`) before saving them to MongoDB.
+* Replaced weak clear-text credential comparisons with secure cryptographic validation (`bcrypt.compare`).
+
+
+2. **JSON Web Token (JWT) Authentication Workflow:**
+* Built a robust **Login API** that validates user credentials and issues a signed JWT token containing a secure payload (`userId`, `username`, `email`).
+* Configured token encryption using a strong environment-based secret (`process.env.jwt_secret`) with a strict expiration time (`24h`).
+
+
+3. **Persistent User Database Schema:**
+* Defined a rigorous Mongoose schema for users with built-in validation rules (`required`, `unique` constraints on email, and minimum length requirements for passwords).
+* Clean separation of concerns between Database Models, Security Controllers, and Express Routes.
+
+
+4. **Full-Stack Integration:**
+* Updated the frontend **Backend Lab Interface** to seamlessly handle secure registration requests and store authentication tokens locally (`localStorage.setItem("authToken", data.token)`) for subsequent authorized API calls.
+
+
+
+---
+
+### 📂 File Structure Updates
+
+```text
+server/
+├── config/
+│   └── dbconnection.config.js     # MongoDB Atlas connection setup
+├── models/
+│   ├── tasks.model.js             # Task data schema
+│   └── users.model.js             # User identity schema (Unique constraints)
+├── routes/
+│   ├── task.route.js              # Task management endpoints
+│   └── user.route.js              # Authentication routes (/register, /login)
+├── security/
+│   └── authentication.security.js # Bcrypt hashing & JWT token generation
+└── main.js                        # Express server entry point with CORS & Middleware
+
+```
+
+---
+
+### 🛠️ API Endpoints Summary
+
+| Method | Endpoint | Description | Status / Response |
+| --- | --- | --- | --- |
+| **POST** | `/user/register` | Register a new user with hashed password | `201 Created` (Safe user object) |
+| **POST** | `/user/login` | Authenticate credentials & generate JWT | `200 OK` (Returns JWT Token) |
+
+----------------------------------------------
+
