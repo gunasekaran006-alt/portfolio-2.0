@@ -112,7 +112,7 @@ const loginApi = async (req, res) => {
         // Generate JWT Token (Valid for 24 hours)
         const token = jwt.sign(
             { userId: user._id, username: user.username, email: user.email },
-            process.env.jwt_secret,
+            process.env.JWT_SECRET,
             { expiresIn: '24h' }
         );
 
