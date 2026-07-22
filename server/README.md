@@ -322,3 +322,129 @@ server/
 
 ----------------------------------------------
 
+Day 77-க்கான முழுமையான **`README.md`** ஆவணம் இதோ. உங்கள் போர்ட்ஃபோலியோ அல்லது கிட்ஹப் ரெபாசிட்டரியில் (GitHub Repository) இதைப் பதிவிட்டால், இந்த அப்ளிகேஷனின் தொழில்முறை தரம் (Professional Standard) மற்றும் பாதுகாப்பு அம்சங்களை மற்றவர்கள் எளிமையாகப் புரிந்துகொள்வார்கள்.
+
+---
+
+# Backend API - Day 77: Protected Routes & Role-Based Authorization
+
+An enterprise-grade MERN stack backend architecture demonstrating secure identity management, password hashing, stateless token-based authentication (JWT), and robust data isolation through relational Mongoose ObjectId references.
+
+---
+
+## 🚀 Key Features & Architecture
+
+* **Secure Identity Management:** User registration and login powered by `bcryptjs` for secure password hashing and salt generation.
+* **Stateless Authentication:** JSON Web Tokens (JWT) issued upon successful login, granting secure access to protected endpoints.
+* **Ownership-Based Access Control:** Middleware-enforced authorization that binds tasks strictly to authenticated users using Mongoose `ObjectId` references (`One-to-Many Architecture`).
+* **Relational Security Layer:** Prevents unauthorized users from modifying or deleting tasks belonging to other accounts.
+* **RESTful API Principles:** Clean separation of concerns adhering to Model-View-Controller (MVC) design patterns.
+
+---
+
+## 🛠️ Tech Stack
+
+* **Node.js** & **Express.js** (Server & Routing)
+* **MongoDB & Mongoose ODM** (Database & Schema Modeling)
+* **JWT (jsonwebtoken)** (Authentication & Session Tokens)
+* **Bcrypt.js** (Password Cryptography)
+* **Dotenv** (Environment Configuration Management)
+
+---
+
+## 📂 Project Structure
+
+```text
+server/
+│
+├── config/
+│   └── dbconnection.config.js    # MongoDB Atlas database connection
+├── controllers/
+│   └── tasks.controller.js       # Business logic with user ownership checks
+├── middleware/
+│   └── authz.middleware.js       # JWT extraction and validation middleware
+├── models/
+│   ├── tasks.model.js            # Task schema with ObjectId user reference
+│   └── users.model.js            # User schema with validation rules
+├── routes/
+│   ├── task.route.js             # Protected task endpoints
+│   └── user.route.js             # Public authentication endpoints
+├── security/
+│   └── authentication.security.js # Registration & Login cryptographic logic
+├── .env                          # Environment variables
+├── main.js                       # Application entry point
+└── package.json                  # Project dependencies & scripts
+
+```
+
+---
+
+## ⚙️ Getting Started & Installation
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+cd server
+
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+
+```
+
+### 3. Configure Environment Variables
+
+Create a `.env` file in the root of the `server` directory and add the following keys:
+
+```env
+port=8080
+atlasport=your_mongodb_atlas_connection_string
+jwt_secret=your_super_secret_jwt_key
+
+```
+
+### 4. Run the Server
+
+For development (using Nodemon):
+
+```bash
+npm run dev
+
+```
+
+---
+
+## 🔌 API Endpoints Reference
+
+### User Authentication (`/user`)
+
+* **POST `/user/register**` - Register a new user account (Requires `username`, `email`, `password`).
+* **POST `/user/login**` - Authenticate user credentials and return a signed `JWT token`.
+
+### Protected Task Management (`/tasks`) *(Requires Bearer Token)*
+
+* **GET `/tasks**` - Retrieve all tasks belonging **only** to the logged-in user.
+* **POST `/tasks**` - Create a new task linked automatically to the authenticated user's ID.
+* **PUT `/tasks/:id**` - Update an existing task (Includes built-in ownership validation).
+* **DELETE `/tasks/:id**` - Remove a specific task (Includes built-in ownership validation).
+
+---
+
+## 🔒 Security Implementation Details
+
+1. **Token Verification Flow:**
+* Client sends request with header: `Authorization: Bearer <JWT_TOKEN>`
+* `authz.middleware.js` extracts the token, verifies it against `process.env.jwt_secret`, and injects `req.userId` into the request object.
+
+
+2. **Data Isolation:**
+* Controllers query documents using both the resource ID and the `user: req.userId` filter, completely eliminating cross-user data exposure vulnerabilities.
+
+
+
+--------------------------------------
+
